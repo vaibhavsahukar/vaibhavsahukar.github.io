@@ -108,10 +108,8 @@
   /* note-strip: quick links to each project as small sticky notes */
   .noteboard{padding:8px 0 40px}
   .noteboard .rail{display:flex;gap:10px;flex-wrap:wrap}
-  .note-chip{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:14px;text-decoration:none;font-weight:500;font-size:14px;color:var(--ink);border:1px solid rgba(0,0,0,.06);box-shadow:var(--shadow-1);touch-action:manipulation;transition:transform var(--t),box-shadow var(--t),rotate var(--t)}
-  .note-chip:nth-child(odd){rotate:-1.4deg}
-  .note-chip:nth-child(even){rotate:1.2deg}
-  .note-chip:hover{rotate:0deg;transform:translateY(-2px);box-shadow:var(--shadow-2)}
+  .note-chip{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:14px;text-decoration:none;font-weight:500;font-size:14px;color:var(--ink);border:1px solid rgba(0,0,0,.06);box-shadow:var(--shadow-1);touch-action:manipulation;transition:transform var(--t),box-shadow var(--t)}
+  .note-chip:hover{transform:translateY(-2px);box-shadow:var(--shadow-2)}
   .note-chip .dot{width:8px;height:8px;border-radius:50%;flex:none}
   @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .note-chip{border-color:rgba(255,255,255,.08)}}
   :root[data-theme="dark"] .note-chip{border-color:rgba(255,255,255,.08)}
@@ -122,17 +120,15 @@
   .section-h h2{font-size:clamp(26px,3.4vw,36px);font-weight:700;letter-spacing:-.02em;margin:0;line-height:1.1;text-wrap:balance}
   .section-h p{margin:0;color:var(--slate);max-width:44ch;font-size:15px}
 
-  .project{scroll-margin-top:80px;border-radius:28px;padding:36px;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:36px;align-items:center;margin-bottom:22px;border:1px solid rgba(0,0,0,.06);box-shadow:var(--shadow-1);transition:transform var(--t),box-shadow var(--t),rotate var(--t)}
-  .project.n1{background:var(--note-yellow);rotate:-.5deg}
-  .project.n2{background:var(--note-teal);rotate:.5deg}
-  .project.n3{background:var(--canvas);border:1px solid var(--hairline-soft);rotate:0deg}
-  .project.n4{background:var(--note-coral);rotate:.5deg}
-  .project.n5{background:var(--note-lavender);rotate:-.5deg}
-  .project.n6{background:var(--note-rose);rotate:.4deg}
-  .project:hover{rotate:0deg !important;box-shadow:var(--shadow-3)}
+  .project{scroll-margin-top:80px;background:var(--canvas);border-radius:20px;padding:36px;padding-left:40px;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:36px;align-items:center;margin-bottom:20px;border:1px solid var(--hairline-soft);border-left:4px solid var(--accent);box-shadow:var(--shadow-1);transition:transform var(--t),box-shadow var(--t)}
+  .project.n1{--accent:var(--yellow-deep)}
+  .project.n2{--accent:#0fbcb0}
+  .project.n3{--accent:var(--stone)}
+  .project.n4{--accent:#ff9999}
+  .project.n5{--accent:var(--blue)}
+  .project.n6{--accent:#e991c9}
+  .project:hover{transform:translateY(-3px);box-shadow:var(--shadow-2)}
   .project.flip > .copy{order:2} .project.flip > .media{order:1}
-  :root[data-theme="dark"] .project{border-color:rgba(255,255,255,.06)}
-  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .project{border-color:rgba(255,255,255,.06)}}
 
   .badge{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:999px;background:rgba(0,0,0,.06);color:var(--ink);margin-bottom:16px}
   :root[data-theme="dark"] .badge{background:rgba(255,255,255,.10)}
@@ -193,13 +189,13 @@
   footer span b{color:#fff;font-weight:600}
 
   @media (max-width:820px){
-    .project{grid-template-columns:1fr;gap:24px;padding:26px;rotate:0deg !important}
+    .project{grid-template-columns:1fr;gap:24px;padding:26px;padding-left:26px;border-left-width:4px}
     .project.flip > .copy{order:1} .project.flip > .media{order:2}
     .hero{padding:48px 0 24px}
   }
   @media (prefers-reduced-motion:reduce){
     .btn,.frame,.project,.nav li a,.note-chip{transition:none}
-    .btn:active,.project:hover,.project:hover .frame.main,.note-chip:hover{transform:none;rotate:inherit}
+    .btn:active,.project:hover,.project:hover .frame.main,.note-chip:hover{transform:none}
   }
 </style>
 </head>
