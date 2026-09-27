@@ -7,12 +7,16 @@
 <meta property="og:title" content="Vaibhav Sahukar">
 <meta property="og:description" content="Vaibhav Sahukar (Vaibeans) — Orange for Photoshop, Flippy, Vain Apparel, a dYdX trading bot, manu ai, and Undercover.">
 <title>Vaibhav Sahukar</title>
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1c1c1e" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap">
 <style>
   /* Design reference: Miro (awesome-design-md) — stark canvas, black-pill CTAs,
      pastel "sticky note" feature cards, Roobert PRO → Onest as the open substitute. */
   :root{
+    color-scheme: light dark;
     --canvas:#ffffff; --surface:#f7f8fa; --surface-soft:#fafbfc;
     --hairline:#e0e2e8; --hairline-soft:#eef0f3; --hairline-strong:#c7cad5;
     --ink:#1c1c1e; --charcoal:#2c2c34; --slate:#555a6a; --steel:#6b6f7e; --stone:#8e91a0; --muted:#a5a8b5;
@@ -57,8 +61,11 @@
   }
 
   *{box-sizing:border-box}
+  html,body{overflow-x:hidden}
   body{margin:0;background:var(--canvas);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
-  a{color:inherit;cursor:pointer}
+  a{color:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .skip-link{position:absolute;left:12px;top:-48px;background:var(--ink);color:var(--canvas);padding:10px 16px;border-radius:8px;font-weight:600;font-size:14px;text-decoration:none;z-index:20;transition:top var(--t)}
+  .skip-link:focus{top:12px}
   a:focus-visible,button:focus-visible,textarea:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:6px}
   img{max-width:100%;display:block}
   .wrap{max-width:var(--w);margin:0 auto;padding:0 24px}
@@ -76,13 +83,13 @@
   .brand .mark{position:relative;width:30px;height:30px;border-radius:8px;background:var(--ink);display:grid;place-items:center;color:var(--canvas);font-weight:700;font-size:14px;flex:none}
   .brand .mark::after{content:"";position:absolute;width:9px;height:9px;border-radius:50%;background:var(--yellow);right:-2px;bottom:-2px;border:2px solid var(--canvas)}
   .nav ul{list-style:none;margin:0;padding:0;display:flex;gap:6px;align-items:center}
-  .nav li a{display:inline-flex;align-items:center;min-height:38px;padding:0 16px;border-radius:999px;text-decoration:none;font-weight:500;font-size:14px;color:var(--steel);border:1px solid transparent;transition:background var(--t),color var(--t),border-color var(--t)}
+  .nav li a{display:inline-flex;align-items:center;min-height:38px;padding:0 16px;border-radius:999px;text-decoration:none;font-weight:500;font-size:14px;color:var(--steel);border:1px solid transparent;touch-action:manipulation;transition:background var(--t),color var(--t),border-color var(--t)}
   .nav li a:hover{border-color:var(--hairline)}
   .nav li a[aria-current="page"]{background:var(--ink);color:var(--canvas)}
 
   /* buttons */
   .btns{display:flex;gap:10px;flex-wrap:wrap}
-  .btn{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 22px;border-radius:999px;font-weight:500;font-size:14px;text-decoration:none;white-space:nowrap;transition:transform var(--t),box-shadow var(--t),background var(--t),border-color var(--t)}
+  .btn{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 22px;border-radius:999px;font-weight:500;font-size:14px;text-decoration:none;white-space:nowrap;touch-action:manipulation;transition:transform var(--t),box-shadow var(--t),background var(--t),border-color var(--t)}
   .btn:active{transform:scale(.97)}
   .btn.primary{background:var(--btn-primary-bg);color:var(--btn-primary-fg)}
   .btn.primary:hover{background:var(--btn-primary-press)}
@@ -101,7 +108,7 @@
   /* note-strip: quick links to each project as small sticky notes */
   .noteboard{padding:8px 0 40px}
   .noteboard .rail{display:flex;gap:10px;flex-wrap:wrap}
-  .note-chip{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:14px;text-decoration:none;font-weight:500;font-size:14px;color:var(--ink);border:1px solid rgba(0,0,0,.06);box-shadow:var(--shadow-1);transition:transform var(--t),box-shadow var(--t),rotate var(--t)}
+  .note-chip{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:14px;text-decoration:none;font-weight:500;font-size:14px;color:var(--ink);border:1px solid rgba(0,0,0,.06);box-shadow:var(--shadow-1);touch-action:manipulation;transition:transform var(--t),box-shadow var(--t),rotate var(--t)}
   .note-chip:nth-child(odd){rotate:-1.4deg}
   .note-chip:nth-child(even){rotate:1.2deg}
   .note-chip:hover{rotate:0deg;transform:translateY(-2px);box-shadow:var(--shadow-2)}
@@ -110,12 +117,12 @@
   :root[data-theme="dark"] .note-chip{border-color:rgba(255,255,255,.08)}
 
   /* work */
-  .work{padding:24px 0 20px}
+  .work{padding:24px 0 20px;scroll-margin-top:80px}
   .section-h{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:28px;flex-wrap:wrap}
-  .section-h h2{font-size:clamp(26px,3.4vw,36px);font-weight:700;letter-spacing:-.02em;margin:0;line-height:1.1}
+  .section-h h2{font-size:clamp(26px,3.4vw,36px);font-weight:700;letter-spacing:-.02em;margin:0;line-height:1.1;text-wrap:balance}
   .section-h p{margin:0;color:var(--slate);max-width:44ch;font-size:15px}
 
-  .project{border-radius:28px;padding:36px;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:36px;align-items:center;margin-bottom:22px;border:1px solid rgba(0,0,0,.06);box-shadow:var(--shadow-1);transition:transform var(--t),box-shadow var(--t),rotate var(--t)}
+  .project{scroll-margin-top:80px;border-radius:28px;padding:36px;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:36px;align-items:center;margin-bottom:22px;border:1px solid rgba(0,0,0,.06);box-shadow:var(--shadow-1);transition:transform var(--t),box-shadow var(--t),rotate var(--t)}
   .project.n1{background:var(--note-yellow);rotate:-.5deg}
   .project.n2{background:var(--note-teal);rotate:.5deg}
   .project.n3{background:var(--canvas);border:1px solid var(--hairline-soft);rotate:0deg}
@@ -131,7 +138,7 @@
   :root[data-theme="dark"] .badge{background:rgba(255,255,255,.10)}
   @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .badge{background:rgba(255,255,255,.10)}}
   .badge .icon{width:15px;height:15px}
-  .project h3{font-size:clamp(24px,3vw,32px);font-weight:700;letter-spacing:-.02em;margin:0 0 12px;line-height:1.1;display:flex;align-items:center;gap:10px;color:var(--ink)}
+  .project h3{font-size:clamp(24px,3vw,32px);font-weight:700;letter-spacing:-.02em;margin:0 0 12px;line-height:1.1;display:flex;align-items:center;gap:10px;color:var(--ink);text-wrap:balance}
   .project .lead{font-size:17px;color:var(--charcoal);margin:0 0 16px;line-height:1.55}
   .project .lead b{font-weight:700}
   .project p{margin:0 0 16px;max-width:56ch;color:var(--charcoal)}
@@ -148,7 +155,8 @@
   .tags{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 20px}
   .tags span{font-size:11.5px;font-weight:600;padding:5px 10px;border-radius:8px;background:var(--canvas);color:var(--charcoal);border:1px solid rgba(0,0,0,.08)}
   .fine{font-size:13.5px;color:var(--steel);margin:0 0 20px}
-  .fine a{color:var(--blue);font-weight:500}
+  .fine a{color:var(--blue);font-weight:500;text-decoration:underline;text-underline-offset:2px}
+  .fine a:hover{color:var(--blue-pressed)}
 
   .media{position:relative}
   .frame{border:1px solid var(--hairline-soft);border-radius:16px;overflow:hidden;background:var(--canvas);box-shadow:var(--shadow-2);transition:transform .35s var(--t),box-shadow .35s var(--t)}
@@ -196,6 +204,7 @@
 </style>
 </head>
 <body>
+<a class="skip-link" href="#top">Skip to content</a>
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="#/"><span class="mark" aria-hidden="true">V</span>Vaibhav Sahukar</a>
@@ -243,13 +252,13 @@
       <div class="copy">
         <div class="badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 16V8h3.5a2.5 2.5 0 0 1 0 5H8M14.5 16l2-8 2 8"/></svg>Photoshop plugin · Adobe Exchange</div>
         <h3>Orange, for Photoshop.</h3>
-        <p class="lead">Type what you want done — <b>"select the shoes"</b>, <b>"merge Layer 1 and Layer 2"</b>, <b>"generate a mountain landscape"</b> — and Orange figures out which action to run. No hunting through menus.</p>
+        <p class="lead">Type what you want done — <b>“select the shoes”</b>, <b>“merge Layer 1 and Layer 2”</b>, <b>“generate a mountain landscape”</b> — and Orange figures out which action to run. No hunting through menus.</p>
         <ul class="feats">
           <li><span class="dash" aria-hidden="true">&ndash;</span>Selects objects by description, using AI object segmentation</li>
           <li><span class="dash" aria-hidden="true">&ndash;</span>Merges layers by name; creates hue/saturation layers from a color word</li>
           <li><span class="dash" aria-hidden="true">&ndash;</span>Generates images sized exactly to your canvas</li>
           <li><span class="dash" aria-hidden="true">&ndash;</span>Matches the style of an existing layer or an attached reference image</li>
-          <li><span class="dash" aria-hidden="true">&ndash;</span>Multiple renameable chat threads; understands <q>that's not it</q> corrections</li>
+          <li><span class="dash" aria-hidden="true">&ndash;</span>Multiple renameable chat threads; understands <q>that’s not it</q> corrections</li>
         </ul>
         <div class="meta">
           <div><small>Version</small><span>1.0.0</span></div>
@@ -280,7 +289,7 @@
         <h3>Flippy
           <svg class="icon" style="width:26px;height:26px;color:#0fbcb0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2h4v4l2 3v11a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V9l2-3z"/><path d="M8 14h8"/></svg></h3>
         <p class="lead">A neon arcade game. <b>Nail the timing on the bottle flip — before the meter outpaces you.</b></p>
-        <p>One bottle, one meter, a row of glowing platforms. Get the timing right and you keep going; get it wrong and you're back to the start. Plays right in the browser, nothing to install.</p>
+        <p>One bottle, one meter, a row of glowing platforms. Get the timing right and you keep going; get it wrong and you’re back to the start. Plays right in the browser, nothing to install.</p>
         <div class="tags"><span>2D</span><span>Arcade</span><span>Neon</span><span>Bottle flip</span><span>HTML5</span></div>
         <div class="meta">
           <div><small>Platform</small><span>Browser</span></div>
@@ -294,10 +303,10 @@
         </div>
       </div>
       <div class="media stack">
-        <div class="frame main"><img src="img/flippy2.png" width="347" height="212" alt="Flippy gameplay: a bottle on the first of a row of glowing teal platforms"></div>
+        <div class="frame main"><img src="img/flippy2.png" loading="lazy" decoding="async" width="347" height="212" alt="Flippy gameplay: a bottle on the first of a row of glowing teal platforms"></div>
         <div class="pair">
-          <div class="frame"><img src="img/flippy1.png" width="347" height="164" alt="Flippy screenshot"></div>
-          <div class="frame"><img src="img/flippy3.png" width="347" height="208" alt="Flippy screenshot"></div>
+          <div class="frame"><img src="img/flippy1.png" loading="lazy" decoding="async" width="347" height="164" alt="Flippy screenshot"></div>
+          <div class="frame"><img src="img/flippy3.png" loading="lazy" decoding="async" width="347" height="208" alt="Flippy screenshot"></div>
         </div>
         <div class="caption">Screenshots from the itch.io page</div>
       </div>
@@ -308,7 +317,7 @@
         <div class="badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 6.6 16 4l-1.5 2h-5L8 4 3.6 6.6l1.6 4.2 2.3-.9V20h9V9.9l2.3.9z"/></svg>Clothing label · @vainapp4rel on TikTok</div>
         <h3>Vain Apparel</h3>
         <p class="lead">A small streetwear label. <b>Blacked-out pieces with tonal all-over prints</b> — the kind of detail you only catch up close.</p>
-        <p>Vain ran as a preorder drop on TikTok. It didn't take off, and that's fine — designing a physical product end to end, from artwork to sample to photos, was the point.</p>
+        <p>Vain ran as a preorder drop on TikTok. It didn’t take off, and that’s fine — designing a physical product end to end, from artwork to sample to photos, was the point.</p>
         <div class="meta">
           <div><small>Where</small><span>TikTok</span></div>
           <div><small>Followers</small><span>94</span></div>
@@ -321,10 +330,10 @@
         </div>
       </div>
       <div class="media stack">
-        <div class="frame main"><img src="img/vain-front.png" width="1323" height="922" alt="Vain long-sleeve, front: black waffle knit with tonal grey floral print and a white Vain wordmark on the chest"></div>
+        <div class="frame main"><img src="img/vain-front.png" loading="lazy" decoding="async" width="1323" height="922" alt="Vain long-sleeve, front: black waffle knit with tonal grey floral print and a white Vain wordmark on the chest"></div>
         <div class="pair">
-          <div class="frame"><img src="img/vain-back.png" width="1327" height="930" alt="Vain long-sleeve, back: large tonal Vain wordmark and floral print"></div>
-          <div class="frame logo"><img src="img/vain-logo.jpg" width="456" height="456" alt="Vain logo"></div>
+          <div class="frame"><img src="img/vain-back.png" loading="lazy" decoding="async" width="1327" height="930" alt="Vain long-sleeve, back: large tonal Vain wordmark and floral print"></div>
+          <div class="frame logo"><img src="img/vain-logo.jpg" loading="lazy" decoding="async" width="456" height="456" alt="Vain logo"></div>
         </div>
         <div class="caption">Long-sleeve, front and back · brand mark from the TikTok page</div>
       </div>
@@ -350,7 +359,7 @@
         <div class="tags"><span>Python</span><span>dYdX v4 API</span><span>Backtested</span><span>Task Scheduler</span></div>
       </div>
       <div class="media">
-        <div class="frame main"><img src="img/perps-dashboard.png" width="1224" height="540" alt="Perps Bot dashboard: BTC and ETH market panels with sparklines, a resting short limit order on ETH, orders on the book, and a trade log"></div>
+        <div class="frame main"><img src="img/perps-dashboard.png" loading="lazy" decoding="async" width="1224" height="540" alt="Perps Bot dashboard: BTC and ETH market panels with sparklines, a resting short limit order on ETH, orders on the book, and a trade log"></div>
         <div class="caption">Live dashboard · testnet paper account, not real money</div>
       </div>
     </article>
@@ -378,7 +387,7 @@
         </div>
       </div>
       <div class="media">
-        <div class="frame main"><img src="img/manu-hero.png" width="1600" height="760" alt="manu ai landing page: a form to describe a garment, upload a sketch, set a budget, clothing type and order quantity"></div>
+        <div class="frame main"><img src="img/manu-hero.png" loading="lazy" decoding="async" width="1600" height="760" alt="manu ai landing page: a form to describe a garment, upload a sketch, set a budget, clothing type and order quantity"></div>
         <div class="caption">Live at manu-ai-vs.vercel.app</div>
       </div>
     </article>
@@ -389,7 +398,7 @@
         <h3>Undercover</h3>
         <p class="lead">Sets a <b>simulated GPS location on an iPhone over USB</b> — the same developer feature Xcode uses under Debug ▸ Simulate Location, with a map you just click on.</p>
         <ul class="feats">
-          <li><span class="dash" aria-hidden="true">&ndash;</span>Drives Apple's own location-simulation service through <code>pymobiledevice3</code> — no jailbreak</li>
+          <li><span class="dash" aria-hidden="true">&ndash;</span>Drives Apple’s own location-simulation service through <code>pymobiledevice3</code> — no jailbreak</li>
           <li><span class="dash" aria-hidden="true">&ndash;</span>Click the map, search a place, or type coordinates; Set location / Stop restores real GPS</li>
           <li><span class="dash" aria-hidden="true">&ndash;</span>Handles Developer Mode enabling and the iOS 17 tunnel requirement automatically</li>
           <li><span class="dash" aria-hidden="true">&ndash;</span>Same app, same UI on both platforms — only the packaging differs</li>
@@ -407,7 +416,7 @@
         </div>
       </div>
       <div class="media">
-        <div class="frame main"><img src="img/undercover-hero.png" width="1100" height="760" alt="Undercover app window: a sidebar showing phone status and a Set Location / Stop control, next to a map of the South Bay Area with a pin"></div>
+        <div class="frame main"><img src="img/undercover-hero.png" loading="lazy" decoding="async" width="1100" height="760" alt="Undercover app window: a sidebar showing phone status and a Set Location / Stop control, next to a map of the South Bay Area with a pin"></div>
         <div class="caption">The app running on Windows, phone not yet connected</div>
       </div>
     </article>
@@ -486,6 +495,12 @@
     $("aboutText").hidden = false; $("aboutEditor").hidden = true;
     $("editBtn").hidden = false; $("cancelBtn").hidden = true; $("saveBtn").hidden = true;
   }
+  function isDirty(){
+    return !$("aboutEditor").hidden && $("fAbout").value.trim() !== ((state && state.about) || "").trim();
+  }
+  function confirmDiscard(){
+    return !isDirty() || window.confirm("Discard your unsaved changes to About me?");
+  }
   function setStatus(msg, cls){ var s=$("saveStatus"); s.textContent = msg; s.className = "save-status" + (cls?" "+cls:""); }
 
   function save(){
@@ -498,17 +513,17 @@
       setTimeout(function(){ setStatus(""); }, 3000);
     }).catch(function(err){
       var code = err && err.code;
-      var msg = code==="capability_disabled" ? "Saving isn't available on a publicly shared page — switch sharing back to private to edit."
+      var msg = code==="capability_disabled" ? "Saving isn’t available on a publicly shared page — switch sharing back to private to edit."
               : code==="not_writer" ? "Only the owner can save changes."
               : code==="conflict" ? "Someone else saved first — the page will reload."
               : code==="rate_limited" ? "Saving too fast — wait a moment and try again."
-              : "Couldn't save (" + (code||"error") + "). Your text is still here; try again.";
+              : "Couldn’t save (" + (code||"error") + "). Your text is still here; try again.";
       setStatus(msg, "err");
     }).finally(function(){ $("saveBtn").disabled = false; $("cancelBtn").disabled = false; });
   }
 
   $("editBtn").onclick = openEditor;
-  $("cancelBtn").onclick = function(){ closeEditor(); setStatus(""); };
+  $("cancelBtn").onclick = function(){ if(!confirmDiscard()) return; closeEditor(); setStatus(""); };
   $("saveBtn").onclick = save;
   $("aboutEditor").addEventListener("submit", function(e){ e.preventDefault(); save(); });
 
@@ -524,10 +539,14 @@
       if(on) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current");
     });
     document.title = isAbout ? "About · Vaibhav Sahukar" : "Vaibhav Sahukar";
-    if(!isAbout && !$("aboutEditor").hidden){ closeEditor(); setStatus(""); }
+    if(!isAbout && !$("aboutEditor").hidden){
+      if(!confirmDiscard()){ location.hash = "#/about"; return; }
+      closeEditor(); setStatus("");
+    }
     if(lastView !== null && view !== lastView) window.scrollTo(0,0);
     lastView = view;
   }
+  window.addEventListener("beforeunload", function(e){ if(isDirty()){ e.preventDefault(); e.returnValue=""; } });
   window.addEventListener("hashchange", route);
   route();
 
