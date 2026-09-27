@@ -79,8 +79,6 @@
   .nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--canvas) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--hairline)}
   .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
   .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:600;font-size:16px;color:var(--ink)}
-  .brand .mark{position:relative;width:30px;height:30px;border-radius:8px;background:var(--ink);display:grid;place-items:center;color:var(--canvas);font-weight:700;font-size:14px;flex:none}
-  .brand .mark::after{content:"";position:absolute;width:9px;height:9px;border-radius:50%;background:var(--yellow);right:-2px;bottom:-2px;border:2px solid var(--canvas)}
   .nav ul{list-style:none;margin:0;padding:0;display:flex;gap:6px;align-items:center}
   .nav li a{display:inline-flex;align-items:center;min-height:38px;padding:0 16px;border-radius:999px;text-decoration:none;font-weight:500;font-size:14px;color:var(--steel);border:1px solid transparent;touch-action:manipulation;transition:background var(--t),color var(--t),border-color var(--t)}
   .nav li a:hover{border-color:var(--hairline)}
@@ -100,7 +98,6 @@
 
   /* hero */
   .hero{padding:64px 0 32px}
-  .chip{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--ink);background:var(--yellow-light);border:1px solid color-mix(in srgb, var(--yellow-deep) 40%, transparent);padding:6px 14px;border-radius:999px;margin-bottom:24px}
   .hero h1{font-size:clamp(38px,6vw,64px);font-weight:700;letter-spacing:-.03em;line-height:1.04;margin:0 0 18px;max-width:15ch;text-wrap:balance}
   .hero p{font-size:18px;color:var(--slate);max-width:56ch;margin:0 0 28px;line-height:1.55}
 
@@ -192,7 +189,7 @@
 <a class="skip-link" href="#top">Skip to content</a>
 <header class="nav">
   <div class="wrap">
-    <a class="brand" href="#/"><span class="mark" aria-hidden="true">V</span>Vaibhav Sahukar</a>
+    <a class="brand" href="#/">Vaibhav Sahukar</a>
     <nav aria-label="Main"><ul>
       <li><a href="#/" data-route="home">Home</a></li>
       <li><a href="#/about" data-route="about">About</a></li>
@@ -204,8 +201,7 @@
 <div id="viewHome">
 <section class="hero">
   <div class="wrap">
-    <div class="chip reveal">Tools · games · trading bots</div>
-    <h1 class="reveal">I build cool shit.</h1>
+    <h1 class="reveal">I build cool things.</h1>
     <p class="reveal">Six things so far: an AI Photoshop plugin, an arcade game, a clothing label, two trading bots, and a couple of AI tools.</p>
     <div class="btns reveal">
       <a class="btn primary" href="#work">See my work
