@@ -117,7 +117,6 @@
   .row{position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.5fr) minmax(0,.62fr) 24px;gap:8px 28px;align-items:baseline;padding:30px 0;border-top:1px solid var(--line);text-decoration:none;color:inherit;transition:opacity .3s var(--ease)}
   .index li:last-child .row{border-bottom:1px solid var(--line)}
   .row-title{display:flex;align-items:center;gap:12px;font-size:clamp(24px,2.9vw,34px);font-weight:600;line-height:1.12;letter-spacing:-.022em}
-  .row-title .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);flex:none;margin-top:2px}
   .row-desc{color:var(--muted);font-size:17px;line-height:1.45;text-wrap:pretty}
   .row-meta{display:flex;flex-direction:column;gap:3px;color:var(--faint);font-size:14.5px;line-height:1.4;text-align:right}
   .row-flag{color:var(--ink);font-weight:500}
@@ -135,9 +134,6 @@
   .sheet-content.n1{--accent:#fcb900} .sheet-content.n2{--accent:#0fbcb0} .sheet-content.n3{--accent:#8e91a0} .sheet-content.n4{--accent:#ff8f8f}
   .sheet-content.n5{--accent:#4262ff} .sheet-content.n6{--accent:#e991c9} .sheet-content.n7{--accent:#ff6a3d} .sheet-content.n8{--accent:#d4af37}
 
-  .peek{position:fixed;left:0;top:0;width:min(340px,38vw);aspect-ratio:16/10;border-radius:14px;overflow:hidden;pointer-events:none;z-index:30;opacity:0;scale:.94;transition:opacity .22s var(--ease),scale .35s var(--ease);box-shadow:0 20px 44px rgba(0,0,0,.18),0 2px 8px rgba(0,0,0,.08);background:var(--bg-2);will-change:transform}
-  .peek.on{opacity:1;scale:1}
-  .peek img{width:100%;height:100%;object-fit:cover}
 
   /* reveal for index rows */
   .js .item{opacity:0;transform:translateY(14px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
@@ -266,7 +262,6 @@
     *,*::before,*::after{animation:none!important}
     .js .item{opacity:1;transform:none;transition:none}
     .sheet-content .media,.sheet-content .copy>*{opacity:1;transform:none}
-    .peek{display:none}
     .scrim{transition:opacity .2s}
   }
   @media (prefers-reduced-transparency:reduce){
@@ -314,12 +309,12 @@
       <p>Shipped, archived, or still cooking — links go to the real thing.</p>
     </div>
     <ul class="index">
-      <li class="item"><a class="row n1" href="#orange" data-id="orange"><span class="row-title"><i class="dot" aria-hidden="true"></i>Orange</span><span class="row-desc">An AI assistant for Photoshop. Describe an edit in plain English and it runs it.</span><span class="row-meta"><span class="row-cat">Photoshop plugin</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
-      <li class="item"><a class="row n2" href="#flippy" data-id="flippy"><span class="row-title"><i class="dot" aria-hidden="true"></i>Flippy</span><span class="row-desc">A neon arcade game about timing a bottle flip.</span><span class="row-meta"><span class="row-cat">Browser game</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
-      <li class="item"><a class="row n3" href="#vain" data-id="vain"><span class="row-title"><i class="dot" aria-hidden="true"></i>Vain Apparel</span><span class="row-desc">A small streetwear label with blacked-out pieces and tonal all-over prints.</span><span class="row-meta"><span class="row-cat">Clothing label</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
-      <li class="item"><a class="row n4" href="#perps" data-id="perps"><span class="row-title"><i class="dot" aria-hidden="true"></i>Perps Bot</span><span class="row-desc">An automated perpetual-futures trader for dYdX v4, running on paper money.</span><span class="row-meta"><span class="row-cat">Trading bot</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
-      <li class="item"><a class="row n5" href="#manu" data-id="manu"><span class="row-title"><i class="dot" aria-hidden="true"></i>manu ai</span><span class="row-desc">Ranks about 40 candidate manufacturers for a garment design.</span><span class="row-meta"><span class="row-cat">Web app</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
-      <li class="item"><a class="row n7" href="#rdtg" data-id="rdtg"><span class="row-title"><i class="dot" aria-hidden="true"></i>Reckless Driving: The Game</span><span class="row-desc">An endless arcade traffic game for your browser or desktop.</span><span class="row-meta"><span class="row-cat">Browser & desktop game</span><span class="row-flag">A game with a cause</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li class="item"><a class="row n1" href="#orange" data-id="orange"><span class="row-title">Orange</span><span class="row-desc">An AI assistant for Photoshop. Describe an edit in plain English and it runs it.</span><span class="row-meta"><span class="row-cat">Photoshop plugin</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li class="item"><a class="row n2" href="#flippy" data-id="flippy"><span class="row-title">Flippy</span><span class="row-desc">A neon arcade game about timing a bottle flip.</span><span class="row-meta"><span class="row-cat">Browser game</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li class="item"><a class="row n3" href="#vain" data-id="vain"><span class="row-title">Vain Apparel</span><span class="row-desc">A small streetwear label with blacked-out pieces and tonal all-over prints.</span><span class="row-meta"><span class="row-cat">Clothing label</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li class="item"><a class="row n4" href="#perps" data-id="perps"><span class="row-title">Perps Bot</span><span class="row-desc">An automated perpetual-futures trader for dYdX v4, running on paper money.</span><span class="row-meta"><span class="row-cat">Trading bot</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li class="item"><a class="row n5" href="#manu" data-id="manu"><span class="row-title">manu ai</span><span class="row-desc">Ranks about 40 candidate manufacturers for a garment design.</span><span class="row-meta"><span class="row-cat">Web app</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li class="item"><a class="row n7" href="#rdtg" data-id="rdtg"><span class="row-title">Reckless Driving: The Game</span><span class="row-desc">An endless arcade traffic game for your browser or desktop.</span><span class="row-meta"><span class="row-cat">Browser & desktop game</span><span class="row-flag">A game with a cause</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
     </ul>
     <div class="details" id="details" aria-label="Project details">
     <article class="detail n1" id="orange">
@@ -546,7 +541,6 @@
     <div class="sheet-scroll"><div class="sheet-content"></div></div>
   </div>
 </dialog>
-<div class="peek" aria-hidden="true"><img alt=""></div>
 
 <script>
 
@@ -652,39 +646,6 @@
   var rows = qsa(".row");
   var details = {};
   qsa(".detail").forEach(function(d){ details[d.id] = d; });
-  var peek = qs(".peek");
-  if(peek && fine && !reduce){
-    var peekImg = qs("img", peek);
-    var sx = spring({ value: 0, response: 0.32, damping: 1, rest: 0.1, onUpdate: place });
-    var sy = spring({ value: 0, response: 0.32, damping: 1, rest: 0.1, onUpdate: place });
-    var px = 0, py = 0;
-    function place(){ peek.style.transform = "translate3d(" + sx.value.toFixed(1) + "px," + sy.value.toFixed(1) + "px,0)"; }
-    var shown = false;
-    function target(e){
-      var w = peek.offsetWidth, h = peek.offsetHeight;
-      px = clamp(e.clientX + 28, 12, window.innerWidth - w - 12);
-      py = clamp(e.clientY - h / 2, 12, window.innerHeight - h - 12);
-    }
-    rows.forEach(function(row){
-      var d = details[row.dataset.id];
-      var src = d && qs(".media .frame img", d);
-      if(src){ var pre = new Image(); pre.decoding = "async"; pre.src = src.getAttribute("src"); }
-      row.addEventListener("pointerenter", function(e){
-        if(!src) return;
-        peekImg.src = src.getAttribute("src");
-        target(e);
-        if(!shown){ sx.set(px); sy.set(py); shown = true; }
-        peek.classList.add("on");
-      });
-      row.addEventListener("pointermove", function(e){
-        target(e);
-        sx.to(px); sy.to(py);
-      });
-      row.addEventListener("pointerleave", function(){ peek.classList.remove("on"); });
-    });
-    document.addEventListener("pointerleave", function(){ peek.classList.remove("on"); });
-  }
-
   // ---- the sheet: opens on a spring, follows a drag 1:1, and carries release velocity into the settle ----
   var dlg = document.getElementById("sheet");
   var api = { has: function(id){ return !!details[id]; }, open: function(){}, close: function(){}, isOpen: function(){ return false; } };
@@ -804,7 +765,6 @@
         e.preventDefault();
         var id = row.dataset.id;
         try { history.pushState({ sheet: id }, "", "#/work/" + id); } catch(er){ location.hash = "#/work/" + id; return; }
-        if(peek) peek.classList.remove("on");
         window.dispatchEvent(new PopStateEvent("popstate"));
       });
     });
