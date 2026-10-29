@@ -127,6 +127,8 @@
   /* hero */
   .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:120px 0 clamp(28px,5vh,56px);overflow:hidden}
   #orb{position:absolute;right:-4vw;top:50%;width:min(82vh,64vw);height:min(82vh,64vw);transform:translateY(-52%);pointer-events:auto;touch-action:pan-y;cursor:grab;opacity:.95;border-radius:50%}
+  #orb{-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent;outline:none;-webkit-touch-callout:none}
+  #orb::selection,.hero ::selection{background:transparent}
   #orb.grab{cursor:grabbing;touch-action:none}
   .hero{-webkit-user-select:none;user-select:none}
   .hero .wrap{position:relative;width:100%;pointer-events:none}
@@ -894,6 +896,8 @@
         e.preventDefault(); zt = n;
       }, {passive: false});
       cv.addEventListener("dblclick", function(){ zt = 1; });
+      cv.addEventListener("selectstart", function(e){ e.preventDefault(); });
+      cv.addEventListener("mousedown", function(e){ e.preventDefault(); });
       document.addEventListener("visibilitychange", function(){ if(!document.hidden && !raf) raf = requestAnimationFrame(frame); });
       raf = requestAnimationFrame(frame);
     }
