@@ -126,8 +126,11 @@
 
   /* hero */
   .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:120px 0 clamp(28px,5vh,56px);overflow:hidden}
-  #orb{position:absolute;right:-4vw;top:50%;width:min(82vh,64vw);height:min(82vh,64vw);transform:translateY(-52%);pointer-events:none;opacity:.95}
-  .hero .wrap{position:relative;width:100%}
+  #orb{position:absolute;right:-4vw;top:50%;width:min(82vh,64vw);height:min(82vh,64vw);transform:translateY(-52%);pointer-events:auto;touch-action:pan-y;cursor:grab;opacity:.95;border-radius:50%}
+  #orb.grab{cursor:grabbing;touch-action:none}
+  .hero{-webkit-user-select:none;user-select:none}
+  .hero .wrap{position:relative;width:100%;pointer-events:none}
+  .hero .wrap a,.hero .wrap button{pointer-events:auto}
   .hero h1{margin:0;font-size:clamp(60px,13.4vw,236px);line-height:.88;letter-spacing:-.05em;font-weight:500}
   .hero h1 .line{display:block;overflow:hidden;padding:.04em 0 .1em;margin:-.04em 0 -.1em}
   .hero h1 .line>span{display:inline-block;animation:rise 1.2s var(--ease) both;animation-delay:calc(var(--i,0)*110ms + 100ms)}
@@ -153,10 +156,9 @@
   .sec-head .label{margin:0}
   .sec-head .count{font:500 12.5px/1 var(--mono);letter-spacing:.08em;color:var(--muted)}
   .index{list-style:none;margin:0;padding:0;border-top:1px solid var(--line-strong)}
-  .row{position:relative;display:grid;grid-template-columns:56px minmax(0,1fr) minmax(0,.62fr) 36px;gap:12px 28px;align-items:start;padding:clamp(26px,3.4vw,46px) 0;border-bottom:1px solid var(--line);text-decoration:none;color:inherit;transition:opacity .35s var(--ease)}
+  .row{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.62fr) 36px;gap:12px 28px;align-items:start;padding:clamp(26px,3.4vw,46px) 0;border-bottom:1px solid var(--line);text-decoration:none;color:inherit;transition:opacity .35s var(--ease)}
   .row::before{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease)}
   .row:hover::before,.row:focus-visible::before{transform:scaleX(1)}
-  .row-no{font:500 12.5px/1 var(--mono);letter-spacing:.08em;color:var(--muted);padding-top:.9em}
   .row-main{display:flex;flex-direction:column;gap:12px;min-width:0}
   .row-title{font-size:clamp(34px,6.2vw,104px);font-weight:500;line-height:.98;letter-spacing:-.045em;transition:transform .6s var(--ease),color .3s}
   .row-desc{max-width:34em;color:var(--muted);font-size:clamp(16px,1.3vw,18px);line-height:1.45;text-wrap:pretty}
@@ -303,11 +305,10 @@
   .sheet.in .sheet-content .media{transition-delay:60ms}
 
   @media (max-width:900px){
-    .row{grid-template-columns:36px minmax(0,1fr) 24px;gap:8px 14px}
-    .row-no{grid-row:1}
-    .row-main{grid-column:2}
-    .row-meta{grid-column:2;grid-row:2;text-align:left;flex-direction:row;flex-wrap:wrap;gap:2px 16px;padding-top:6px}
-    .row-go{grid-column:3;grid-row:1}
+    .row{grid-template-columns:minmax(0,1fr) 24px;gap:8px 14px}
+    .row-main{grid-column:1}
+    .row-meta{grid-column:1;grid-row:2;text-align:left;flex-direction:row;flex-wrap:wrap;gap:2px 16px;padding-top:6px}
+    .row-go{grid-column:2;grid-row:1}
     .hero-foot{flex-direction:column;align-items:flex-start}
     .hero-meta{text-align:left}
     .about-card{grid-template-columns:minmax(0,1fr)}
@@ -382,12 +383,12 @@
   <div class="wrap">
     <div class="sec-head"><span class="label">/ Selected work</span><span class="count">(06)</span></div>
     <ul class="index">
-      <li class="item"><a class="row" href="#orange" data-id="orange"><span class="row-no">01</span><span class="row-main"><span class="row-title">Orange</span><span class="row-desc">Photoshop plugin that turns plain-English requests into edits: select objects, merge layers, generate images.</span></span><span class="row-meta"><span class="row-status">Published on Adobe Exchange</span><span class="row-stack">JavaScript · Photoshop UXP · Ollama</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
-      <li class="item"><a class="row" href="#flippy" data-id="flippy"><span class="row-no">02</span><span class="row-main"><span class="row-title">Flippy</span><span class="row-desc">Neon arcade game about timing a bottle flip, playable in the browser.</span></span><span class="row-meta"><span class="row-status">Released on itch.io</span><span class="row-stack">HTML5 · JavaScript</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
-      <li class="item"><a class="row" href="#vain" data-id="vain"><span class="row-no">03</span><span class="row-main"><span class="row-title">Vain Apparel</span><span class="row-desc">Streetwear label taken from artwork to samples to a TikTok preorder drop.</span></span><span class="row-meta"><span class="row-status">Archived · 94 followers, 1.8K likes</span><span class="row-stack">Product design · Branding · Social media</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
-      <li class="item"><a class="row" href="#perps" data-id="perps"><span class="row-no">04</span><span class="row-main"><span class="row-title">Perps Bot</span><span class="row-desc">Automated perpetual-futures trader for dYdX v4, backtested and running on a testnet paper account.</span></span><span class="row-meta"><span class="row-status">Running on testnet</span><span class="row-stack">Python · dYdX v4 API · Backtesting</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
-      <li class="item"><a class="row" href="#manu" data-id="manu"><span class="row-no">05</span><span class="row-main"><span class="row-title">manu ai</span><span class="row-desc">Ranks about 40 manufacturers for a garment design with an LLM-extracted, five-factor weighted score.</span></span><span class="row-meta"><span class="row-status">Live on Vercel</span><span class="row-stack">Next.js · LLM APIs (Groq, Claude)</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
-      <li class="item"><a class="row" href="#rdtg" data-id="rdtg"><span class="row-no">06</span><span class="row-main"><span class="row-title">RDTG</span><span class="row-desc">Endless arcade traffic game with three maps, police chases and physics-based crashes.</span></span><span class="row-meta"><span class="row-status">Released on itch.io</span><span class="row-flag">A game with a cause</span><span class="row-stack">HTML5 · JavaScript · Gamepad support</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li class="item"><a class="row" href="#orange" data-id="orange"><span class="row-main"><span class="row-title">Orange</span><span class="row-desc">Photoshop plugin that turns plain-English requests into edits: select objects, merge layers, generate images.</span></span><span class="row-meta"><span class="row-status">Published on Adobe Exchange</span><span class="row-stack">JavaScript · Photoshop UXP · Ollama</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li class="item"><a class="row" href="#flippy" data-id="flippy"><span class="row-main"><span class="row-title">Flippy</span><span class="row-desc">Neon arcade game about timing a bottle flip, playable in the browser.</span></span><span class="row-meta"><span class="row-status">Released on itch.io</span><span class="row-stack">HTML5 · JavaScript</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li class="item"><a class="row" href="#vain" data-id="vain"><span class="row-main"><span class="row-title">Vain Apparel</span><span class="row-desc">Streetwear label taken from artwork to samples to a TikTok preorder drop.</span></span><span class="row-meta"><span class="row-status">Archived · 94 followers, 1.8K likes</span><span class="row-stack">Product design · Branding · Social media</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li class="item"><a class="row" href="#perps" data-id="perps"><span class="row-main"><span class="row-title">Perps Bot</span><span class="row-desc">Automated perpetual-futures trader for dYdX v4, backtested and running on a testnet paper account.</span></span><span class="row-meta"><span class="row-status">Running on testnet</span><span class="row-stack">Python · dYdX v4 API · Backtesting</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li class="item"><a class="row" href="#manu" data-id="manu"><span class="row-main"><span class="row-title">manu ai</span><span class="row-desc">Ranks about 40 manufacturers for a garment design with an LLM-extracted, five-factor weighted score.</span></span><span class="row-meta"><span class="row-status">Live on Vercel</span><span class="row-stack">Next.js · LLM APIs (Groq, Claude)</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li class="item"><a class="row" href="#rdtg" data-id="rdtg"><span class="row-main"><span class="row-title">RDTG</span><span class="row-desc">Endless arcade traffic game with three maps, police chases and physics-based crashes.</span></span><span class="row-meta"><span class="row-status">Released on itch.io</span><span class="row-flag">A game with a cause</span><span class="row-stack">HTML5 · JavaScript · Gamepad support</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
     </ul>
     <div class="details" id="details" aria-label="Project details">
     <article class="detail n1" id="orange">
@@ -782,7 +783,8 @@
     var ctx = cv.getContext("2d");
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
     var S = 0, G = 9, inkC = "#f2efe8", accC = "#ff2a2a";
-    var tx = -0.5, ty = -0.45, lx = -0.5, ly = -0.45, rot = 0, last = 0, visible = true, raf = 0;
+    var tx = -0.5, ty = -0.45, lx = -0.5, ly = -0.45, rot = 0, pit = 0.25, vyaw = 0, vpit = 0, zoom = 1, zt = 1, drag = false, px = 0, py = 0, last = 0, visible = true, raf = 0;
+    var ptrs = {}, pinch = 0;
     function colors(){
       var cs = getComputedStyle(root);
       inkC = cs.getPropertyValue("--ink").trim() || inkC;
@@ -806,7 +808,8 @@
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, S, S);
       var R = S * 0.47, c = S / 2;
-      var cos = Math.cos(rot), sin = Math.sin(rot);
+      var cos = Math.cos(rot), sin = Math.sin(rot), cp = Math.cos(pit), sp = Math.sin(pit);
+      var zs = 1 / zoom;
       var Lz = 0.85, Ll = Math.sqrt(lx * lx + ly * ly + Lz * Lz), Lx = lx / Ll, Ly = ly / Ll, Lzn = Lz / Ll;
       var pa = new Path2D(), pi = new Path2D();
       for(var gy = G / 2; gy < S; gy += G){
@@ -814,8 +817,10 @@
           var dx = (gx - c) / R, dy = (gy - c) / R, d2 = dx * dx + dy * dy;
           if(d2 > 1) continue;
           var z = Math.sqrt(1 - d2);
-          var rx = dx * cos + z * sin, rz = -dx * sin + z * cos;
-          var l = land(rx, dy, rz);
+          var sx = dx * zs, sy = dy * zs, sz = Math.sqrt(Math.max(0, 1 - sx * sx - sy * sy));
+          var qy = sy * cp - sz * sp, qz = sy * sp + sz * cp;
+          var rx = sx * cos + qz * sin, rz = -sx * sin + qz * cos;
+          var l = land(rx, qy, rz);
           var lum = Math.max(0, dx * Lx + dy * Ly + z * Lzn);
           var v = lum * (0.3 + 0.7 * l);
           var rad = G * 0.52 * Math.pow(v, 0.75);
@@ -832,7 +837,8 @@
       if(!visible || document.hidden) return;
       if(now - last > 24){
         var dt = Math.min((now - last) / 1000, 0.05); last = now;
-        rot += dt * 0.16;
+        if(!drag){ rot += dt * 0.16 + vyaw; pit += vpit; vyaw *= 0.94; vpit *= 0.94; pit = clamp(pit, -1.2, 1.2); }
+        zoom += (zt - zoom) * 0.14;
         lx += (tx - lx) * 0.07; ly += (ty - ly) * 0.07;
         draw(now);
       }
@@ -852,6 +858,42 @@
           if(visible && !raf) raf = requestAnimationFrame(frame);
         }).observe(cv);
       }
+      cv.addEventListener("pointerdown", function(e){
+        ptrs[e.pointerId] = [e.clientX, e.clientY];
+        try{ cv.setPointerCapture(e.pointerId); }catch(_){}
+        var ids = Object.keys(ptrs);
+        if(ids.length === 2){ pinch = Math.hypot(ptrs[ids[0]][0] - ptrs[ids[1]][0], ptrs[ids[0]][1] - ptrs[ids[1]][1]); drag = false; }
+        else { drag = true; px = e.clientX; py = e.clientY; vyaw = vpit = 0; }
+        cv.classList.add("grab");
+      });
+      cv.addEventListener("pointermove", function(e){
+        if(!ptrs[e.pointerId]) return;
+        ptrs[e.pointerId] = [e.clientX, e.clientY];
+        var ids = Object.keys(ptrs);
+        if(ids.length === 2){
+          var d = Math.hypot(ptrs[ids[0]][0] - ptrs[ids[1]][0], ptrs[ids[0]][1] - ptrs[ids[1]][1]);
+          if(pinch) zt = clamp(zt * d / pinch, 1, 4);
+          pinch = d; return;
+        }
+        if(!drag) return;
+        var k = 2.6 / (S * 0.47 * zoom);
+        vyaw = -(e.clientX - px) * k; vpit = (e.clientY - py) * k;
+        rot += vyaw; pit = clamp(pit + vpit, -1.2, 1.2);
+        px = e.clientX; py = e.clientY;
+      });
+      function up(e){
+        delete ptrs[e.pointerId]; pinch = 0;
+        var ids = Object.keys(ptrs);
+        if(ids.length === 1){ drag = true; px = ptrs[ids[0]][0]; py = ptrs[ids[0]][1]; }
+        else if(!ids.length){ drag = false; cv.classList.remove("grab"); }
+      }
+      cv.addEventListener("pointerup", up); cv.addEventListener("pointercancel", up);
+      cv.addEventListener("wheel", function(e){
+        var n = clamp(zt * Math.exp(-e.deltaY * 0.0018), 1, 4);
+        if(n === zt) return;
+        e.preventDefault(); zt = n;
+      }, {passive: false});
+      cv.addEventListener("dblclick", function(){ zt = 1; });
       document.addEventListener("visibilitychange", function(){ if(!document.hidden && !raf) raf = requestAnimationFrame(frame); });
       raf = requestAnimationFrame(frame);
     }
