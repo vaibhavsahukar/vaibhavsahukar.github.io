@@ -129,7 +129,7 @@
   #orb{position:absolute;right:-4vw;top:50%;width:min(82vh,64vw);height:min(82vh,64vw);transform:translateY(-52%);pointer-events:auto;touch-action:pan-y;cursor:grab;opacity:.95;border-radius:50%}
   #orb{-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent;outline:none;-webkit-touch-callout:none}
   #orb::selection,.hero ::selection{background:transparent}
-  #orb.grab{cursor:grabbing;touch-action:none}
+  #orb.spinning{cursor:grabbing;touch-action:none}
   .hero{-webkit-user-select:none;user-select:none}
   .hero .wrap{position:relative;width:100%;pointer-events:none}
   .hero .wrap a,.hero .wrap button{pointer-events:auto}
@@ -866,7 +866,7 @@
         var ids = Object.keys(ptrs);
         if(ids.length === 2){ pinch = Math.hypot(ptrs[ids[0]][0] - ptrs[ids[1]][0], ptrs[ids[0]][1] - ptrs[ids[1]][1]); drag = false; }
         else { drag = true; px = e.clientX; py = e.clientY; vyaw = vpit = 0; }
-        cv.classList.add("grab");
+        cv.classList.add("spinning");
       });
       cv.addEventListener("pointermove", function(e){
         if(!ptrs[e.pointerId]) return;
@@ -887,7 +887,7 @@
         delete ptrs[e.pointerId]; pinch = 0;
         var ids = Object.keys(ptrs);
         if(ids.length === 1){ drag = true; px = ptrs[ids[0]][0]; py = ptrs[ids[0]][1]; }
-        else if(!ids.length){ drag = false; cv.classList.remove("grab"); }
+        else if(!ids.length){ drag = false; cv.classList.remove("spinning"); }
       }
       cv.addEventListener("pointerup", up); cv.addEventListener("pointercancel", up);
       cv.addEventListener("wheel", function(e){
