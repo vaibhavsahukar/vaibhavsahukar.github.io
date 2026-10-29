@@ -724,7 +724,7 @@
   // ---- page curtain used by the router when switching between Work and About ----
   var curtain = qs(".curtain");
   window.pageSwap = function(swap){
-    if(reduce || !curtain || !curtain.animate || window.matchMedia("(max-width:760px)").matches){ swap(); return; }
+    swap(); return;
     var p = { x: lastPt.x, y: lastPt.y }, R = reach(p);
     curtain.style.display = "block";
     curtain.style.transform = "none";
