@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Vaibhav Sahukar (Vaibeans) — Orange for Photoshop, Flippy, RDTG, Vain Apparel, a dYdX trading bot, manu ai, PinPlan, and Undercover.">
+<meta name="description" content="Vaibhav Sahukar (Vaibeans) — student developer seeking software engineering internships. Projects: Orange for Photoshop, Flippy, RDTG, Vain Apparel, a dYdX trading bot, manu ai, PinPlan and Undercover.">
 <meta property="og:title" content="Vaibhav Sahukar">
-<meta property="og:description" content="Vaibhav Sahukar (Vaibeans) — Orange for Photoshop, Flippy, RDTG, Vain Apparel, a dYdX trading bot, manu ai, PinPlan, and Undercover.">
+<meta property="og:description" content="Vaibhav Sahukar (Vaibeans) — student developer seeking software engineering internships. Projects: Orange for Photoshop, Flippy, RDTG, Vain Apparel, a dYdX trading bot, manu ai, PinPlan and Undercover.">
 <title>Vaibhav Sahukar</title>
 <meta name="theme-color" content="#fbfbfd" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0b0b0c" media="(prefers-color-scheme: dark)">
@@ -277,6 +277,25 @@
     :root{--line:rgba(128,128,128,.55);--muted:var(--ink-2);--faint:var(--ink-2)}
     .row,.index li:last-child .row{border-color:var(--ink)}
   }
+
+  .row{grid-template-columns:minmax(0,1fr) minmax(0,1.45fr) minmax(0,.95fr) 24px}
+  .row-status{color:var(--ink);font-weight:500}
+  .row-stack{color:var(--faint)}
+  .skills,.contact{padding:clamp(24px,5vw,56px) 0 8px}
+  .skill-list{margin:0;padding:0}
+  .skill{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.1fr);gap:6px 28px;padding:22px 0;border-top:1px solid var(--line)}
+  .skill:last-child{border-bottom:1px solid var(--line)}
+  .skill dt{font-weight:600;font-size:18px;letter-spacing:-.01em}
+  .skill dd{margin:0;color:var(--muted);font-size:17px;line-height:1.5}
+  .contact-links{margin:8px 0 0;font-size:clamp(22px,3vw,34px);letter-spacing:-.02em;font-weight:600}
+  .textlink{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--line-strong);padding-bottom:4px;transition:border-color .2s}
+  .textlink:hover{border-color:var(--ink)}
+  .textlink .icon{width:22px;height:22px;transition:transform .35s var(--ease)}
+  .textlink:hover .icon{transform:translate(3px,-3px)}
+  @media (max-width:820px){
+    .skill{grid-template-columns:minmax(0,1fr)}
+    .row-meta{gap:2px 14px}
+  }
 </style>
 <script>document.documentElement.classList.add("js");try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 </head>
@@ -302,25 +321,25 @@
 <section class="hero">
   <div class="wrap">
     <h1 aria-label="I build cool things."><span class="w" aria-hidden="true" style="--i:0"><span>I</span></span> <span class="w" aria-hidden="true" style="--i:1"><span>build</span></span> <span class="w" aria-hidden="true" style="--i:2"><span><em>cool</em></span></span> <span class="w" aria-hidden="true" style="--i:3"><span>things.</span></span></h1>
-    <p>Eight things so far: an AI Photoshop plugin, two arcade games, a clothing label, two trading bots, and three AI tools.</p>
+    <p>Student at EVHS who builds software end to end. I have shipped a Photoshop plugin, two browser games, AI web apps and a trading bot. Looking for a software engineering internship.</p>
   </div>
 </section>
 
 <section class="work" id="work">
   <div class="wrap">
     <div class="section-h">
-      <h2>My work</h2>
-      <p>Shipped, archived, or still cooking — links go to the real thing.</p>
+      <h2>Selected work</h2>
+      <p>Each project opens with what it does, what I built it with, and a link to the real thing.</p>
     </div>
     <ul class="index">
-      <li class="item"><a class="row n1" href="#orange" data-id="orange"><span class="row-title">Orange</span><span class="row-desc">An AI assistant for Photoshop. Describe an edit in plain English and it runs it.</span><span class="row-meta"><span class="row-cat">Photoshop plugin</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
-      <li class="item"><a class="row n2" href="#flippy" data-id="flippy"><span class="row-title">Flippy</span><span class="row-desc">A neon arcade game about timing a bottle flip.</span><span class="row-meta"><span class="row-cat">Browser game</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
-      <li class="item"><a class="row n3" href="#vain" data-id="vain"><span class="row-title">Vain Apparel</span><span class="row-desc">A small streetwear label with blacked-out pieces and tonal all-over prints.</span><span class="row-meta"><span class="row-cat">Clothing label</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
-      <li class="item"><a class="row n4" href="#perps" data-id="perps"><span class="row-title">Perps Bot</span><span class="row-desc">An automated perpetual-futures trader for dYdX v4, running on paper money.</span><span class="row-meta"><span class="row-cat">Trading bot</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
-      <li class="item"><a class="row n5" href="#manu" data-id="manu"><span class="row-title">manu ai</span><span class="row-desc">Ranks about 40 candidate manufacturers for a garment design.</span><span class="row-meta"><span class="row-cat">Web app</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
-      <li class="item"><a class="row n6" href="#undercover" data-id="undercover"><span class="row-title">Undercover</span><span class="row-desc">Sets a simulated GPS location on an iPhone over USB.</span><span class="row-meta"><span class="row-cat">Desktop app</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
-      <li class="item"><a class="row n7" href="#rdtg" data-id="rdtg"><span class="row-title">Reckless Driving: The Game</span><span class="row-desc">An endless arcade traffic game for your browser or desktop.</span><span class="row-meta"><span class="row-cat">Browser & desktop game</span><span class="row-flag">A game with a cause</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
-      <li class="item"><a class="row n8" href="#pinplan" data-id="pinplan"><span class="row-title">PinPlan</span><span class="row-desc">A reference catalog of steroids and peptides, with a stack planner and an AI chat.</span><span class="row-meta"><span class="row-cat">Web app</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li class="item"><a class="row n1" href="#orange" data-id="orange"><span class="row-title">Orange</span><span class="row-desc">Photoshop plugin that turns plain-English requests into edits: select objects, merge layers, generate images.</span><span class="row-meta"><span class="row-status">Published on Adobe Exchange</span><span class="row-stack">JavaScript · Photoshop UXP · Ollama</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li class="item"><a class="row n2" href="#flippy" data-id="flippy"><span class="row-title">Flippy</span><span class="row-desc">Neon arcade game about timing a bottle flip, playable in the browser.</span><span class="row-meta"><span class="row-status">Released on itch.io</span><span class="row-stack">HTML5 · JavaScript</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li class="item"><a class="row n3" href="#vain" data-id="vain"><span class="row-title">Vain Apparel</span><span class="row-desc">Streetwear label taken from artwork to samples to a TikTok preorder drop.</span><span class="row-meta"><span class="row-status">Archived · 94 followers, 1.8K likes</span><span class="row-stack">Product design · Branding · Social media</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li class="item"><a class="row n4" href="#perps" data-id="perps"><span class="row-title">Perps Bot</span><span class="row-desc">Automated perpetual-futures trader for dYdX v4, backtested and running on a testnet paper account.</span><span class="row-meta"><span class="row-status">Running on testnet</span><span class="row-stack">Python · dYdX v4 API · Backtesting</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li class="item"><a class="row n5" href="#manu" data-id="manu"><span class="row-title">manu ai</span><span class="row-desc">Ranks about 40 manufacturers for a garment design with an LLM-extracted, five-factor weighted score.</span><span class="row-meta"><span class="row-status">Live on Vercel</span><span class="row-stack">Next.js · LLM APIs (Groq, Claude)</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li class="item"><a class="row n6" href="#undercover" data-id="undercover"><span class="row-title">Undercover</span><span class="row-desc">Desktop app that sets a simulated GPS location on an iPhone over USB, on Windows and macOS.</span><span class="row-meta"><span class="row-status">Released as v0.1.0</span><span class="row-stack">Python · pymobiledevice3 · FastAPI</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li class="item"><a class="row n7" href="#rdtg" data-id="rdtg"><span class="row-title">Reckless Driving: The Game</span><span class="row-desc">Endless arcade traffic game with three maps, police chases and physics-based crashes.</span><span class="row-meta"><span class="row-status">Released on itch.io · <span class="row-flag">A game with a cause</span></span><span class="row-stack">HTML5 · JavaScript · Gamepad support</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li class="item"><a class="row n8" href="#pinplan" data-id="pinplan"><span class="row-title">PinPlan</span><span class="row-desc">Cited reference catalog of 22 compounds, with a stack planner and an AI chat.</span><span class="row-meta"><span class="row-status">Live on Vercel</span><span class="row-stack">Next.js · LLM API</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
     </ul>
     <div class="details" id="details" aria-label="Project details">
     <article class="detail n1" id="orange">
@@ -559,6 +578,34 @@
     </div>
   </div>
 </section>
+
+<section class="skills" id="skills">
+  <div class="wrap">
+    <div class="section-h">
+      <h2>Skills</h2>
+      <p>What I have used in the projects above.</p>
+    </div>
+    <dl class="skill-list">
+      <div class="skill"><dt>Languages</dt><dd>Python, JavaScript, HTML and CSS</dd></div>
+      <div class="skill"><dt>Frameworks and platforms</dt><dd>Next.js, Photoshop UXP, FastAPI</dd></div>
+      <div class="skill"><dt>AI and APIs</dt><dd>LLM APIs (Groq, Claude, OpenRouter), local models with Ollama, the dYdX v4 trading API</dd></div>
+      <div class="skill"><dt>Shipping</dt><dd>Git and GitHub, Vercel, GitHub Pages, Adobe Exchange, itch.io</dd></div>
+      <div class="skill"><dt>Practice</dt><dd>Backtesting, product design, writing clear project documentation</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="section-h">
+      <h2>Contact</h2>
+      <p>Open to software engineering internships.</p>
+    </div>
+    <p class="contact-links"><a class="textlink" href="https://github.com/vaibhavsahukar" target="_blank" rel="noopener">github.com/vaibhavsahukar
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></p>
+  </div>
+</section>
+
 </div>
 
 <section class="about" id="about" hidden>
