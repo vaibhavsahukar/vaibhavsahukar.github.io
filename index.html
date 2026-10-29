@@ -102,22 +102,11 @@
   ::view-transition-old(root){z-index:1}
   ::view-transition-new(root){z-index:2}
 
-  /* rotating contact badge */
-  .badge-cta{position:fixed;left:50%;bottom:26px;margin-left:-47px;width:94px;height:94px;border-radius:50%;background:var(--accent);color:var(--accent-ink);z-index:55;display:grid;place-items:center;text-decoration:none;transition:transform .5s var(--ease),opacity .4s;touch-action:manipulation}
-  .badge-cta.away{transform:translateY(160%);opacity:0;pointer-events:none}
-  .badge-cta:hover{transform:scale(1.08)}
-  .badge-cta:active{transform:scale(.96)}
-  .badge-ring{position:absolute;inset:0;width:100%;height:100%;animation:spin 16s linear infinite}
-  .badge-ring text{font:500 7.4px var(--mono);letter-spacing:.14em;text-transform:uppercase;fill:currentColor}
-  .badge-arrow{width:26px;height:26px;position:relative;transition:transform .4s var(--ease)}
-  .badge-cta:hover .badge-arrow{transform:rotate(45deg)}
-  @keyframes spin{to{transform:rotate(360deg)}}
 
   /* cursor ring */
   .cursor{position:fixed;left:0;top:0;width:34px;height:34px;margin:-17px 0 0 -17px;border:1px solid var(--ink);border-radius:50%;pointer-events:none;z-index:120;mix-blend-mode:difference;opacity:0;transition:width .35s var(--ease),height .35s var(--ease),margin .35s var(--ease),background .25s,opacity .3s,border-color .25s;display:grid;place-items:center;font:500 11px/1 var(--mono);letter-spacing:.08em;color:transparent;will-change:transform}
   .cursor.on{opacity:1}
   .cursor[data-mode="link"]{width:58px;height:58px;margin:-29px 0 0 -29px}
-  .cursor[data-mode="open"]{width:96px;height:96px;margin:-48px 0 0 -48px;background:var(--accent);border-color:var(--accent);mix-blend-mode:normal;color:var(--accent-ink)}
   html.locked .cursor{opacity:0}
 
   /* buttons */
@@ -329,7 +318,6 @@
     .nav-links li:nth-child(3){display:none}
     .sheet{width:100%;border-radius:16px 16px 0 0}
     .stack .pair{gap:8px}
-    .badge-cta{width:80px;height:80px;margin-left:-40px;bottom:18px}
   }
   @media (hover:none),(pointer:coarse){ .cursor{display:none} }
   @media (prefers-reduced-motion:reduce){
@@ -369,10 +357,6 @@
     </ul>
   </div>
 </header>
-<a class="badge-cta away" href="#contact" aria-label="Contact">
-  <svg class="badge-ring" viewBox="0 0 100 100" aria-hidden="true"><defs><path id="circ" d="M50,50 m-36,0 a36,36 0 1,1 72,0 a36,36 0 1,1 -72,0"/></defs><text><textPath href="#circ" textLength="223" lengthAdjust="spacing">Vaibhav Sahukar · Open to internships · Say hi ·</textPath></text></svg>
-  <svg class="badge-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
-</a>
 
 <main id="top">
 <div id="viewHome">
@@ -390,7 +374,7 @@
 <section class="statement" id="position">
   <div class="wrap">
     <span class="label">/ Position</span>
-    <p><span class="sw">I</span> <span class="sw">turn</span> <span class="sw">ideas</span> <span class="sw">into</span> <span class="sw hl">working</span> <span class="sw hl">software,</span> <span class="sw">from</span> <span class="sw">the</span> <span class="sw">first</span> <span class="sw">sketch</span> <span class="sw">to</span> <span class="sw">a</span> <span class="sw">public</span> <span class="sw">release:</span> <span class="sw">a</span> <span class="sw">Photoshop</span> <span class="sw">plugin,</span> <span class="sw">browser</span> <span class="sw">games,</span> <span class="sw">AI</span> <span class="sw">tools</span> <span class="sw">and</span> <span class="sw">a</span> <span class="sw">trading</span> <span class="sw">bot.</span></p>
+    <p><span class="sw">I</span> <span class="sw">turn</span> <span class="sw">ideas</span> <span class="sw">into</span> <span class="sw hl">working</span> <span class="sw hl">software,</span> <span class="sw">from</span> <span class="sw">the</span> <span class="sw">first</span> <span class="sw">sketch</span> <span class="sw">to</span> <span class="sw">a</span> <span class="sw">public</span> <span class="sw">release.</span></p>
   </div>
 </section>
 
@@ -820,18 +804,10 @@
     requestAnimationFrame(tick);
   }
 
-  // ---- nav material + contact badge hides near the contact section ----
-  var nav = qs(".nav"), badge = qs(".badge-cta"), contact = document.getElementById("contact");
-  function onScroll(){
-    var y = window.scrollY || root.scrollTop;
-    if(nav) nav.classList.toggle("scrolled", y > 8);
-    if(badge && contact){
-      var r = contact.getBoundingClientRect();
-      badge.classList.toggle("away", r.top < window.innerHeight * 0.55 || y < window.innerHeight * 0.35);
-    }
-  }
+  // ---- nav material appears once content scrolls under it ----
+  var nav = qs(".nav");
+  function onScroll(){ if(nav) nav.classList.toggle("scrolled", (window.scrollY || root.scrollTop) > 8); }
   window.addEventListener("scroll", onScroll, {passive: true});
-  window.addEventListener("resize", onScroll);
   onScroll();
 
   // ---- statement: each word lights up as it scrolls into the reading band ----
@@ -958,9 +934,7 @@
     }, {passive: true});
     document.addEventListener("pointerover", function(e){
       var t = e.target.closest && e.target.closest("a,button,.row");
-      var mode = !t ? "" : (t.classList.contains("row") ? "open" : "link");
-      cur.dataset.mode = mode;
-      cur.textContent = mode === "open" ? "OPEN" : "";
+      cur.dataset.mode = t ? "link" : "";
     });
     document.addEventListener("pointerleave", function(){ cur.classList.remove("on"); seen = false; });
   }
