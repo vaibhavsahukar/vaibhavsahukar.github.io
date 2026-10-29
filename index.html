@@ -202,9 +202,8 @@
 
   /* contact */
   .contact{padding:clamp(72px,11vw,170px) 0 clamp(40px,6vw,80px);scroll-margin-top:40px}
-  .contact h2{margin:0 0 clamp(26px,4vw,56px);font-size:clamp(72px,17vw,300px);line-height:.84;letter-spacing:-.055em;font-weight:500}
-  .contact-row{display:flex;flex-wrap:wrap;gap:20px 56px;align-items:center;justify-content:space-between;padding-top:24px;border-top:1px solid var(--line-strong)}
-  .contact-row .mono{color:var(--muted);max-width:26em;line-height:1.7}
+  .contact-mail{margin:0;font-size:clamp(26px,4.6vw,72px);line-height:1.05;letter-spacing:-.04em;font-weight:500;overflow-wrap:anywhere;user-select:text}
+  .contact-row{display:flex;flex-wrap:wrap;gap:20px 56px;align-items:center;justify-content:space-between;padding-top:clamp(24px,3vw,40px);border-top:1px solid var(--line-strong)}
   .textlink{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);font-size:clamp(24px,3.4vw,52px);letter-spacing:-.035em;font-weight:500;border-bottom:1px solid var(--line-strong);padding-bottom:6px;transition:border-color .25s,color .25s}
   .textlink:hover{border-color:var(--accent);color:var(--accent)}
   .textlink .icon{width:.7em;height:.7em;transition:transform .4s var(--ease)}
@@ -217,8 +216,6 @@
   .totop:hover{color:var(--ink)}
   .totop .icon{width:14px;height:14px;transition:transform .35s var(--ease)}
   .totop:hover .icon{transform:translateY(-3px)}
-  .giant{overflow:hidden;line-height:.76;padding:0 var(--pad);text-align:center;pointer-events:none;user-select:none}
-  .giant span{display:block;font-size:clamp(30px,10.4vw,210px);font-weight:600;letter-spacing:-.05em;color:color-mix(in srgb,var(--ink) 7%,transparent);white-space:nowrap}
 
   /* about */
   .about{padding:clamp(130px,19vh,200px) 0 clamp(80px,12vh,140px);min-height:80vh}
@@ -603,10 +600,8 @@
 <section class="contact" id="contact">
   <div class="wrap">
     <span class="label">/ Contact</span>
-    <h2>Say hi.</h2>
     <div class="contact-row">
-      <a class="textlink" href="https://github.com/vaibhavsahukar" target="_blank" rel="noopener">github.com/vaibhavsahukar <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
-      <span class="mono">Open to software engineering internships.</span>
+      <p class="contact-mail">vaibhav.sahukarbsn@gmail.com</p>
     </div>
   </div>
 </section>
@@ -641,7 +636,6 @@
 </main>
 
 <footer>
-  <div class="giant" aria-hidden="true"><span>VAIBHAV SAHUKAR</span></div>
   <div class="wrap">
     <span>&copy; 2026 <b>Vaibhav Sahukar</b></span>
     <span>Position · Build · Ship</span>
