@@ -18,8 +18,8 @@
     --bg:#0c0c0b; --bg-2:#151514; --sheet:#141413;
     --ink:#f2efe8; --ink-2:#cfcbc2; --muted:#908c83; --faint:#6e6b64;
     --line:rgba(242,239,232,.14); --line-strong:rgba(242,239,232,.30); --chip:rgba(242,239,232,.08);
-    --accent:#ff4d1f; --accent-ink:#0c0c0b; --link:#ff6a42;
-    --tint:rgba(255,77,31,.12); --scrim:rgba(0,0,0,.6);
+    --accent:#ff2a2a; --accent-ink:#0c0c0b; --link:#ff6060;
+    --tint:rgba(255,42,42,.12); --scrim:rgba(0,0,0,.6);
     --font:"Geist","Helvetica Neue",Helvetica,"Segoe UI",system-ui,sans-serif;
     --mono:"Geist Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
     --ease:cubic-bezier(.23,1,.32,1); --ease-io:cubic-bezier(.76,0,.24,1);
@@ -31,8 +31,8 @@
       --bg:#f1eee7; --bg-2:#e8e4da; --sheet:#faf8f3;
       --ink:#0f0f0e; --ink-2:#3a3a37; --muted:#6a675f; --faint:#8d8a82;
       --line:rgba(15,15,14,.14); --line-strong:rgba(15,15,14,.32); --chip:rgba(15,15,14,.07);
-      --accent:#ff4d1f; --accent-ink:#0f0f0e; --link:#c93a12;
-      --tint:rgba(255,77,31,.10); --scrim:rgba(20,20,18,.45);
+      --accent:#e0141a; --accent-ink:#ffffff; --link:#b8101a;
+      --tint:rgba(224,20,26,.10); --scrim:rgba(20,20,18,.45);
     }
   }
   :root[data-theme="dark"]{ color-scheme: dark }
@@ -41,8 +41,8 @@
     --bg:#f1eee7; --bg-2:#e8e4da; --sheet:#faf8f3;
     --ink:#0f0f0e; --ink-2:#3a3a37; --muted:#6a675f; --faint:#8d8a82;
     --line:rgba(15,15,14,.14); --line-strong:rgba(15,15,14,.32); --chip:rgba(15,15,14,.07);
-    --accent:#ff4d1f; --accent-ink:#0f0f0e; --link:#c93a12;
-    --tint:rgba(255,77,31,.10); --scrim:rgba(20,20,18,.45);
+    --accent:#e0141a; --accent-ink:#ffffff; --link:#b8101a;
+    --tint:rgba(224,20,26,.10); --scrim:rgba(20,20,18,.45);
   }
 
   *{box-sizing:border-box}
@@ -875,7 +875,7 @@
   if(cv && cv.getContext){
     var ctx = cv.getContext("2d");
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
-    var S = 0, G = 9, inkC = "#f2efe8", accC = "#ff4d1f";
+    var S = 0, G = 9, inkC = "#f2efe8", accC = "#ff2a2a";
     var tx = -0.5, ty = -0.45, lx = -0.5, ly = -0.45, rot = 0, last = 0, visible = true, raf = 0;
     function colors(){
       var cs = getComputedStyle(root);
