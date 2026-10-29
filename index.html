@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Vaibhav Sahukar (Vaibeans) — student developer seeking software engineering internships. Projects: Orange for Photoshop, Flippy, RDTG, Vain Apparel, a dYdX trading bot, manu ai, PinPlan and Undercover.">
+<meta name="description" content="Vaibhav Sahukar (Vaibeans) — student developer seeking software engineering internships. Projects: Orange for Photoshop, Flippy, RDTG, Vain Apparel, a dYdX trading bot, an options trading bot, manu ai, PinPlan and Undercover.">
 <meta property="og:title" content="Vaibhav Sahukar">
-<meta property="og:description" content="Vaibhav Sahukar (Vaibeans) — student developer seeking software engineering internships. Projects: Orange for Photoshop, Flippy, RDTG, Vain Apparel, a dYdX trading bot, manu ai, PinPlan and Undercover.">
+<meta property="og:description" content="Vaibhav Sahukar (Vaibeans) — student developer seeking software engineering internships. Projects: Orange for Photoshop, Flippy, RDTG, Vain Apparel, a dYdX trading bot, an options trading bot, manu ai, PinPlan and Undercover.">
 <title>Vaibhav Sahukar</title>
 <meta name="theme-color" content="#f1eee7" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0c0c0b" media="(prefers-color-scheme: dark)">
@@ -157,6 +157,13 @@
   .sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding-bottom:20px;margin-bottom:0}
   .sec-head .label{margin:0}
   .sec-head .count{font:500 12.5px/1 var(--mono);letter-spacing:.08em;color:var(--muted)}
+  .sec-head .sort{display:flex;align-items:center;gap:6px;margin-left:auto;font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+  .sort-k{color:var(--faint);margin-right:6px}
+  .sort-b{appearance:none;background:none;border:1px solid var(--line-strong);color:var(--muted);font:inherit;letter-spacing:inherit;text-transform:inherit;padding:9px 13px;border-radius:999px;cursor:pointer;transition:color .25s,border-color .25s,background .25s}
+  .sort-b:hover{color:var(--ink);border-color:var(--ink)}
+  .sort-b.on{color:var(--ink);background:color-mix(in srgb,var(--ink) 20%,transparent);border-color:transparent}
+  .sort-b:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  @media (max-width:760px){.sec-head{flex-wrap:wrap}.sec-head .sort{order:3;margin-left:0;width:100%}.sort-k{display:none}}
   .index{list-style:none;margin:0;padding:0;border-top:1px solid var(--line-strong)}
   .row{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.62fr) 36px;gap:12px 28px;align-items:start;padding:clamp(26px,3.4vw,46px) 0;border-bottom:1px solid var(--line);text-decoration:none;color:inherit;transition:opacity .35s var(--ease)}
   .row::before{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease)}
@@ -195,7 +202,8 @@
 
   /* contact */
   .contact{padding:clamp(72px,11vw,170px) 0 clamp(40px,6vw,80px);scroll-margin-top:40px}
-  .contact-mail{margin:0;font-size:clamp(26px,4.6vw,72px);line-height:1.05;letter-spacing:-.04em;font-weight:500;overflow-wrap:anywhere;user-select:text}
+  .contact-mail{margin:0;font-size:clamp(26px,4.6vw,72px);line-height:1.05;letter-spacing:-.04em;font-weight:500;white-space:nowrap;user-select:text}
+  @media (max-width:760px){.contact-mail{font-size:min(5.4vw,26px);letter-spacing:-.03em}}
   .contact-row{display:flex;flex-wrap:wrap;gap:20px 56px;align-items:center;justify-content:space-between;padding-top:clamp(24px,3vw,40px);border-top:1px solid var(--line-strong)}
   .textlink{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);font-size:clamp(24px,3.4vw,52px);letter-spacing:-.035em;font-weight:500;border-bottom:1px solid var(--line-strong);padding-bottom:6px;transition:border-color .25s,color .25s}
   .textlink:hover{border-color:var(--accent);color:var(--accent)}
@@ -383,185 +391,65 @@
 
 <section class="work" id="work">
   <div class="wrap">
-    <div class="sec-head"><span class="label">/ Selected work</span><span class="count">(08)</span></div>
+    <div class="sec-head"><span class="label">/ Selected work</span><div class="sort" role="group" aria-label="Sort projects"><span class="sort-k">Sort</span><button type="button" class="sort-b on" data-sort="importance" aria-pressed="true">Importance</button><button type="button" class="sort-b" data-sort="chronological" aria-pressed="false">Chronological</button></div><span class="count">(10)</span></div>
     <ul class="index">
-      <li class="item"><a class="row" href="#orange" data-id="orange"><span class="row-main"><span class="row-title">Orange</span><span class="row-desc">Photoshop plugin that turns plain-English requests into edits: select objects, merge layers, generate images.</span></span><span class="row-meta"><span class="row-status">Published on Adobe Exchange</span><span class="row-stack">JavaScript · Photoshop UXP · Ollama</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
-      <li class="item"><a class="row" href="#flippy" data-id="flippy"><span class="row-main"><span class="row-title">Flippy</span><span class="row-desc">Neon arcade game about timing a bottle flip, playable in the browser.</span></span><span class="row-meta"><span class="row-status">Released on itch.io</span><span class="row-stack">HTML5 · JavaScript</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li class="item"><a class="row" href="#options" data-id="options"><span class="row-main"><span class="row-title">Options Bot</span><span class="row-desc">Unattended 0DTE QQQ iron-condor trader on Alpaca, with paper and live accounts, risk controls and a monitoring dashboard.</span></span><span class="row-meta"><span class="row-status">Running on paper and live</span><span class="row-stack">Python · Alpaca API · Backtesting</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li class="item"><a class="row" href="#baywell" data-id="baywell"><span class="row-main"><span class="row-title">Baywell Tech</span><span class="row-desc">San Jose marketing agency I run, with a hand-built website, a contact pipeline and an internal macOS app for client work.</span></span><span class="row-meta"><span class="row-status">Live at baywell.tech</span><span class="row-stack">HTML, CSS, JS · Cloudflare Workers · SwiftUI</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li class="item"><a class="row" href="#rdtg" data-id="rdtg"><span class="row-main"><span class="row-title">RDTG</span><span class="row-desc">Endless arcade traffic game with three maps, police chases and physics-based crashes.</span></span><span class="row-meta"><span class="row-status">Released on itch.io</span><span class="row-stack">HTML5 · JavaScript · Gamepad support</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
       <li class="item"><a class="row" href="#vain" data-id="vain"><span class="row-main"><span class="row-title">Vain Apparel</span><span class="row-desc">Streetwear label taken from artwork to samples to a TikTok preorder drop.</span></span><span class="row-meta"><span class="row-status">Archived · 94 followers, 1.8K likes</span><span class="row-stack">Product design · Branding · Social media</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
-      <li class="item"><a class="row" href="#perps" data-id="perps"><span class="row-main"><span class="row-title">Perps Bot</span><span class="row-desc">Automated perpetual-futures trader for dYdX v4, backtested and running on a testnet paper account.</span></span><span class="row-meta"><span class="row-status">Running on testnet</span><span class="row-stack">Python · dYdX v4 API · Backtesting</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
-      <li class="item"><a class="row" href="#manu" data-id="manu"><span class="row-main"><span class="row-title">manu ai</span><span class="row-desc">Ranks about 40 manufacturers for a garment design with an LLM-extracted, five-factor weighted score.</span></span><span class="row-meta"><span class="row-status">Live on Vercel</span><span class="row-stack">Next.js · LLM APIs (Groq, Claude)</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
       <li class="item"><a class="row" href="#undercover" data-id="undercover"><span class="row-main"><span class="row-title">Undercover</span><span class="row-desc">Desktop app that sets a simulated GPS location on an iPhone over USB, on Windows and macOS.</span></span><span class="row-meta"><span class="row-status">Released as v0.1.0</span><span class="row-stack">Python · pymobiledevice3 · FastAPI</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
-      <li class="item"><a class="row" href="#rdtg" data-id="rdtg"><span class="row-main"><span class="row-title">RDTG</span><span class="row-desc">Endless arcade traffic game with three maps, police chases and physics-based crashes.</span></span><span class="row-meta"><span class="row-status">Released on itch.io</span><span class="row-flag">A game with a cause</span><span class="row-stack">HTML5 · JavaScript · Gamepad support</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li class="item"><a class="row" href="#manu" data-id="manu"><span class="row-main"><span class="row-title">manu ai</span><span class="row-desc">Ranks about 40 manufacturers for a garment design with an LLM-extracted, five-factor weighted score.</span></span><span class="row-meta"><span class="row-status">Live on Vercel</span><span class="row-stack">Next.js · LLM APIs (Groq, Claude)</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li class="item"><a class="row" href="#perps" data-id="perps"><span class="row-main"><span class="row-title">Perps Bot</span><span class="row-desc">Automated perpetual-futures trader for dYdX v4, backtested and running on a testnet paper account.</span></span><span class="row-meta"><span class="row-status">Running on testnet</span><span class="row-stack">Python · dYdX v4 API · Backtesting</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
       <li class="item"><a class="row" href="#pinplan" data-id="pinplan"><span class="row-main"><span class="row-title">PinPlan</span><span class="row-desc">Cited reference catalog of 22 compounds, with a stack planner and an AI chat.</span></span><span class="row-meta"><span class="row-status">Live on Vercel</span><span class="row-stack">Next.js · LLM API</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li class="item"><a class="row" href="#flippy" data-id="flippy"><span class="row-main"><span class="row-title">Flippy</span><span class="row-desc">Neon arcade game about timing a bottle flip, playable in the browser.</span></span><span class="row-meta"><span class="row-status">Released on itch.io</span><span class="row-stack">HTML5 · JavaScript</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li class="item"><a class="row" href="#orange" data-id="orange"><span class="row-main"><span class="row-title">Orange</span><span class="row-desc">Photoshop plugin that turns plain-English requests into edits: select objects, merge layers, generate images.</span></span><span class="row-meta"><span class="row-status">Published on Adobe Exchange</span><span class="row-stack">JavaScript · Photoshop UXP · Ollama</span></span><svg class="row-go icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
     </ul>
     <div class="details" id="details" aria-label="Project details">
-    <article class="detail n1" id="orange">
+    <article class="detail n9" id="options">
       <div class="copy">
-        <div class="badge"><span class="dot" aria-hidden="true"></span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 16V8h3.5a2.5 2.5 0 0 1 0 5H8M14.5 16l2-8 2 8"/></svg>Photoshop plugin · Adobe Exchange</div>
-        <h3>Orange, for Photoshop.</h3>
-        <p class="lead">Type what you want done — <b>“select the shoes”</b>, <b>“merge Layer 1 and Layer 2”</b>, <b>“generate a mountain landscape”</b> — and Orange figures out which action to run. No hunting through menus.</p>
+        <div class="badge"><span class="dot" aria-hidden="true"></span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg> Trading bot &middot; Running</div>
+        <h3>Options Bot</h3>
+        <p class="lead">An unattended Python bot that trades <b>0DTE QQQ iron condors</b> on Alpaca, across two paper accounts and one small live account.</p>
         <ul class="feats">
-          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Selects objects by description, using AI object segmentation</span></li>
-          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Merges layers by name; creates hue/saturation layers from a color word</span></li>
-          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Generates images sized exactly to your canvas</span></li>
-          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Matches the style of an existing layer or an attached reference image</span></li>
-          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Multiple renameable chat threads; understands <q>that’s not it</q> corrections</span></li>
+          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Sells a same-day-expiring QQQ iron condor twice a day, skipping any day where the credit is under 15&cent;</span></li>
+          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Stops out at 2.5&times; the credit and force-closes any side near the price before the close; far sides expire worthless</span></li>
+          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Live account needs an explicit opt-in, a 1-contract cap and a kill-switch file, with credentials kept apart from the paper accounts</span></li>
+          <li><span class="dash" aria-hidden="true">&ndash;</span><span>A reconciliation job replaces the bot&rsquo;s own P&amp;L estimates with real broker fills after the logs overstated results</span></li>
+          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Backtested on two years of real 5-minute option trade prices with slippage scenarios; the sample of live days is still small</span></li>
         </ul>
         <div class="meta">
-          <div><small>Version</small><span>1.0.0</span></div>
-          <div><small>Published</small><span>Sep 10, 2026</span></div>
-          <div><small>Size</small><span>2.06 MB</span></div>
-          <div><small>Requires</small><span>Ps 26.11.26+</span></div>
-          <div><small>Price</small><span>Free</span></div>
+          <div><small>Broker</small><span>Alpaca</span></div>
+          <div><small>Underlying</small><span>QQQ 0DTE</span></div>
+          <div><small>Accounts</small><span>2 paper &middot; 1 live</span></div>
+          <div><small>Live cap</small><span>1 contract</span></div>
         </div>
-        <p class="fine">Windows and Mac. Uses <a href="https://ollama.com/download" target="_blank" rel="noopener">Ollama</a> locally for its language and vision models — no account or login needed.</p>
-        <div class="btns">
-          <a class="btn primary" href="https://exchange.adobe.com/apps/cc/ae37a3ef/orange-for-photoshop" target="_blank" rel="noopener">Get it on Adobe Exchange
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
-        </div>
-      </div>
-      <div class="media">
-        <div class="app-id">
-          <img src="img/orange-icon.png" alt="Orange plugin icon: a smiling orange" width="48" height="48">
-          <div><b>Orange</b><small>AI assistant for Photoshop</small></div>
-        </div>
-        <div class="frame main"><img src="img/orange-hero.png" width="1360" height="800" alt="Orange listing artwork: 'Type what you want done in plain English - select an object, merge layers, generate an image - and Orange figures out the rest.'"></div>
-        <div class="caption">Listing artwork from Adobe Exchange · Design Assets, Tools &amp; Automation</div>
-      </div>
-    </article>
-    <article class="detail n2" id="flippy">
+        <div class="tags"><span>Python</span><span>Alpaca API</span><span>Backtested</span><span>Task Scheduler</span></div>
+      </div></article>
+    <article class="detail n10" id="baywell">
       <div class="copy">
-        <div class="badge"><span class="dot" aria-hidden="true"></span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="3"/><path d="M6 12h4M8 10v4M15 11h.01M18 13h.01"/></svg>Browser game · Free on itch.io</div>
-        <h3>Flippy
-          <svg class="icon" style="width:26px;height:26px;color:#0fbcb0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2h4v4l2 3v11a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V9l2-3z"/><path d="M8 14h8"/></svg></h3>
-        <p class="lead">A neon arcade game. <b>Nail the timing on the bottle flip — before the meter outpaces you.</b></p>
-        <p>One bottle, one meter, a row of glowing platforms. Get the timing right and you keep going; get it wrong and you’re back to the start. Plays right in the browser, nothing to install.</p>
-        <div class="tags"><span>2D</span><span>Arcade</span><span>Neon</span><span>Bottle flip</span><span>HTML5</span></div>
-        <div class="meta">
-          <div><small>Platform</small><span>Browser</span></div>
-          <div><small>Status</small><span>Released</span></div>
-          <div><small>Price</small><span>Free</span></div>
-          <div><small>Audio</small><span>AI-generated</span></div>
-        </div>
-        <div class="btns">
-          <a class="btn primary" href="https://vaibeans.itch.io/flippy" target="_blank" rel="noopener">Play Flippy
-            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg></a>
-        </div>
-      </div>
-      <div class="media stack">
-        <div class="frame main"><img src="img/flippy2.png" loading="lazy" decoding="async" width="347" height="212" alt="Flippy gameplay: a bottle on the first of a row of glowing teal platforms"></div>
-        <div class="pair">
-          <div class="frame"><img src="img/flippy1.png" loading="lazy" decoding="async" width="347" height="164" alt="Flippy screenshot"></div>
-          <div class="frame"><img src="img/flippy3.png" loading="lazy" decoding="async" width="347" height="208" alt="Flippy screenshot"></div>
-        </div>
-        <div class="caption">Screenshots from the itch.io page</div>
-      </div>
-    </article>
-    <article class="detail n3" id="vain">
-      <div class="copy">
-        <div class="badge"><span class="dot" aria-hidden="true"></span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 6.6 16 4l-1.5 2h-5L8 4 3.6 6.6l1.6 4.2 2.3-.9V20h9V9.9l2.3.9z"/></svg>Clothing label · @vainapp4rel on TikTok</div>
-        <h3>Vain Apparel</h3>
-        <p class="lead">A small streetwear label. <b>Blacked-out pieces with tonal all-over prints</b> — the kind of detail you only catch up close.</p>
-        <p>Vain ran as a preorder drop on TikTok. It didn’t take off, and that’s fine — designing a physical product end to end, from artwork to sample to photos, was the point.</p>
-        <div class="meta">
-          <div><small>Where</small><span>TikTok</span></div>
-          <div><small>Followers</small><span>94</span></div>
-          <div><small>Likes</small><span>1.8K</span></div>
-          <div><small>Status</small><span>Archived</span></div>
-        </div>
-        <div class="btns">
-          <a class="btn outline" href="https://www.tiktok.com/@vainapp4rel" target="_blank" rel="noopener">See Vain on TikTok
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
-        </div>
-      </div>
-      <div class="media stack">
-        <div class="frame main"><img src="img/vain-front.png" loading="lazy" decoding="async" width="1323" height="922" alt="Vain long-sleeve, front: black waffle knit with tonal grey floral print and a white Vain wordmark on the chest"></div>
-        <div class="pair">
-          <div class="frame"><img src="img/vain-back.png" loading="lazy" decoding="async" width="1327" height="930" alt="Vain long-sleeve, back: large tonal Vain wordmark and floral print"></div>
-          <div class="frame logo"><img src="img/vain-logo.jpg" loading="lazy" decoding="async" width="456" height="456" alt="Vain logo"></div>
-        </div>
-        <div class="caption">Long-sleeve, front and back · brand mark from the TikTok page</div>
-      </div>
-    </article>
-    <article class="detail n4" id="perps">
-      <div class="copy">
-        <div class="badge"><span class="dot" aria-hidden="true"></span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>Trading bot · In progress</div>
-        <h3>Perps Bot</h3>
-        <p class="lead">An automated perpetual-futures trader for <b>dYdX v4</b>, running on paper money until the strategy earns the right to go live.</p>
+        <div class="badge"><span class="dot" aria-hidden="true"></span>Digital agency &middot; San Jose</div>
+        <h3>Baywell Tech</h3>
+        <p class="lead">A <b>marketing agency in San Jose</b> that I run, with its own website, contact pipeline and internal app.</p>
         <ul class="feats">
-          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Fibonacci-retracement swing setups on 1-hour candles for BTC and ETH</span></li>
-          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Enters with resting limit orders at the level — the version that survived realistic slippage, fees and funding in backtests</span></li>
-          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Fixed risk per trade, isolated margin, and a hard stop placed on every fill</span></li>
-          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Runs unattended every 15 minutes, with a live dashboard for positions, orders and the trade log</span></li>
+          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Hand-written site in HTML, CSS and vanilla JS with no framework, light and dark themes, reduced-motion support and a layout tested at 375 px</span></li>
+          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Five services: websites, Google SEO, AI search optimisation, AI reception and messaging automation, and Meta Ads</span></li>
+          <li><span class="dash" aria-hidden="true">&ndash;</span><span>A contact form guarded by Cloudflare Turnstile, handled by a Cloudflare Worker that validates every field and sends confirmation emails through Resend</span></li>
+          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Structured data, a sitemap and llms.txt, with the home page indexed by Google</span></li>
+          <li><span class="dash" aria-hidden="true">&ndash;</span><span>An internal SwiftUI app for macOS with a lead finder, SEO and Meta Ads tabs, and data shared between partners</span></li>
         </ul>
         <div class="meta">
-          <div><small>Exchange</small><span>dYdX v4</span></div>
-          <div><small>Markets</small><span>BTC · ETH</span></div>
-          <div><small>Risk</small><span>7% · 5× iso</span></div>
-          <div><small>Mode</small><span>Paper (testnet)</span></div>
+          <div><small>Site</small><span>baywell.tech</span></div>
+          <div><small>Hosting</small><span>Vercel</span></div>
+          <div><small>Backend</small><span>Cloudflare Workers</span></div>
+          <div><small>App</small><span>macOS &middot; SwiftUI</span></div>
         </div>
-        <div class="tags"><span>Python</span><span>dYdX v4 API</span><span>Backtested</span><span>Task Scheduler</span></div>
+        <div class="tags"><span>HTML/CSS/JS</span><span>Cloudflare Workers</span><span>SwiftUI</span><span>Supabase</span></div>
       </div>
       <div class="media">
-        <div class="frame main"><img src="img/perps-dashboard.png" loading="lazy" decoding="async" width="1224" height="540" alt="Perps Bot dashboard: BTC and ETH market panels with sparklines, a resting short limit order on ETH, orders on the book, and a trade log"></div>
-        <div class="caption">Live dashboard · testnet paper account, not real money</div>
-      </div>
-    </article>
-    <article class="detail n5" id="manu">
-      <div class="copy">
-        <div class="badge"><span class="dot" aria-hidden="true"></span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7v13h18V7M3 7l9-4 9 4M3 7l9 4 9-4M12 11v9"/></svg>Web app · Live</div>
-        <h3>manu ai</h3>
-        <p class="lead">A garment is really a sourcing decision under constraints — budget, order size, skill required. <b>manu ai underwrites that decision</b> the way a screener prices a position: one design, ~40 candidate manufacturers, one weighted score per candidate. Built out of the exact problem Vain Apparel ran into — finding a factory for a design.</p>
-        <ul class="feats">
-          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Describe the garment or drop in a sketch — an LLM extracts the structured attributes once: fabric, construction complexity, special features</span></li>
-          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Every manufacturer is scored on the same five weighted factors — specialty fit, capability match, MOQ fit, skill-vs-complexity, and budget tier — then ranked, not just filtered</span></li>
-          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Each ranked pick carries its reasoning, so the shortlist reads like an allocation memo, not a black-box score</span></li>
-          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Runs free by default (Groq); upgrades to Claude for vision + structured output only if you choose to spend on it</span></li>
-        </ul>
-        <div class="meta">
-          <div><small>Stack</small><span>Next.js</span></div>
-          <div><small>Data</small><span>40 makers</span></div>
-          <div><small>Price</small><span>Free</span></div>
-          <div><small>Status</small><span>Live</span></div>
-        </div>
-        <div class="btns">
-          <a class="btn primary" href="https://manu-ai-vs.vercel.app" target="_blank" rel="noopener">Try manu ai
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
-        </div>
-      </div>
-      <div class="media">
-        <div class="frame main"><img src="img/manu-hero.png" loading="lazy" decoding="async" width="1600" height="760" alt="manu ai landing page: a form to describe a garment, upload a sketch, set a budget, clothing type and order quantity"></div>
-        <div class="caption">Live at manu-ai-vs.vercel.app</div>
-      </div>
-    </article>
-    <article class="detail n6" id="undercover">
-      <div class="copy">
-        <div class="badge"><span class="dot" aria-hidden="true"></span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="10" r="3"/><path d="M12 21c-4-4.5-7-8-7-11a7 7 0 0 1 14 0c0 3-3 6.5-7 11z"/></svg>Desktop app · Windows &amp; macOS</div>
-        <h3>Undercover</h3>
-        <p class="lead">Sets a <b>simulated GPS location on an iPhone over USB</b> — the same developer feature Xcode uses under Debug ▸ Simulate Location, with a map you just click on.</p>
-        <ul class="feats">
-          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Drives Apple’s own location-simulation service through <code>pymobiledevice3</code> — no jailbreak</span></li>
-          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Click the map, search a place, or type coordinates; Set location / Stop restores real GPS</span></li>
-          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Handles Developer Mode enabling and the iOS 17 tunnel requirement automatically</span></li>
-          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Same app, same UI on both platforms — only the packaging differs</span></li>
-        </ul>
-        <div class="meta">
-          <div><small>Platform</small><span>Win · Mac</span></div>
-          <div><small>Version</small><span>0.1.0</span></div>
-          <div><small>Scope</small><span>Local only</span></div>
-          <div><small>Price</small><span>Free</span></div>
-        </div>
-        <p class="fine">Personal / educational use, one phone at a time. No anti-detection or mock-location evasion, no auto-update, no licensing.</p>
-        <div class="btns">
-          <a class="btn primary" href="https://undercoverapp.vercel.app" target="_blank" rel="noopener">Get Undercover
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
-        </div>
-      </div>
-      <div class="media">
-        <div class="frame main"><img src="img/undercover-hero.jpg" loading="lazy" decoding="async" width="1180" height="780" alt="Undercover connected to an iPhone, with a pin dropped near Apple Park on the map"></div>
-        <div class="caption">The app running on Windows, connected to a phone</div>
-      </div>
-    </article>
+        <div class="frame main"><img src="img/baywell-banner.webp" loading="lazy" decoding="async" width="2000" height="667" alt="Baywell Tech, San Jose: the Baywell logo and wordmark on a navy banner"></div>
+        <div class="frame"><img src="img/baywell-hero.png" loading="lazy" decoding="async" width="1440" height="842" alt="The Baywell Tech home page: Your business. More local customers."></div>
+        <div class="caption">Brand banner, and the home page at baywell.tech</div>
+      </div></article>
     <article class="detail n7" id="rdtg">
       <div class="copy">
         <div class="badge"><span class="dot" aria-hidden="true"></span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3v18"/><path d="M5 4h13l-3 4 3 4H5"/></svg>Browser &amp; desktop game · Free on itch.io</div>
@@ -596,6 +484,111 @@
         <div class="caption">Screenshots from the itch.io page</div>
       </div>
     </article>
+    <article class="detail n3" id="vain">
+      <div class="copy">
+        <div class="badge"><span class="dot" aria-hidden="true"></span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 6.6 16 4l-1.5 2h-5L8 4 3.6 6.6l1.6 4.2 2.3-.9V20h9V9.9l2.3.9z"/></svg>Clothing label · @vainapp4rel on TikTok</div>
+        <h3>Vain Apparel</h3>
+        <p class="lead">A small streetwear label. <b>Blacked-out pieces with tonal all-over prints</b> — the kind of detail you only catch up close.</p>
+        <p>Vain ran as a preorder drop on TikTok. It didn’t take off, and that’s fine — designing a physical product end to end, from artwork to sample to photos, was the point.</p>
+        <div class="meta">
+          <div><small>Where</small><span>TikTok</span></div>
+          <div><small>Followers</small><span>94</span></div>
+          <div><small>Likes</small><span>1.8K</span></div>
+          <div><small>Status</small><span>Archived</span></div>
+        </div>
+        <div class="btns">
+          <a class="btn outline" href="https://www.tiktok.com/@vainapp4rel" target="_blank" rel="noopener">See Vain on TikTok
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        </div>
+      </div>
+      <div class="media stack">
+        <div class="frame main"><img src="img/vain-front.png" loading="lazy" decoding="async" width="1323" height="922" alt="Vain long-sleeve, front: black waffle knit with tonal grey floral print and a white Vain wordmark on the chest"></div>
+        <div class="pair">
+          <div class="frame"><img src="img/vain-back.png" loading="lazy" decoding="async" width="1327" height="930" alt="Vain long-sleeve, back: large tonal Vain wordmark and floral print"></div>
+          <div class="frame logo"><img src="img/vain-logo.jpg" loading="lazy" decoding="async" width="456" height="456" alt="Vain logo"></div>
+        </div>
+        <div class="caption">Long-sleeve, front and back · brand mark from the TikTok page</div>
+      </div>
+    </article>
+    <article class="detail n6" id="undercover">
+      <div class="copy">
+        <div class="badge"><span class="dot" aria-hidden="true"></span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="10" r="3"/><path d="M12 21c-4-4.5-7-8-7-11a7 7 0 0 1 14 0c0 3-3 6.5-7 11z"/></svg>Desktop app · Windows &amp; macOS</div>
+        <h3>Undercover</h3>
+        <p class="lead">Sets a <b>simulated GPS location on an iPhone over USB</b> — the same developer feature Xcode uses under Debug ▸ Simulate Location, with a map you just click on.</p>
+        <ul class="feats">
+          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Drives Apple’s own location-simulation service through <code>pymobiledevice3</code> — no jailbreak</span></li>
+          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Click the map, search a place, or type coordinates; Set location / Stop restores real GPS</span></li>
+          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Handles Developer Mode enabling and the iOS 17 tunnel requirement automatically</span></li>
+          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Same app, same UI on both platforms — only the packaging differs</span></li>
+        </ul>
+        <div class="meta">
+          <div><small>Platform</small><span>Win · Mac</span></div>
+          <div><small>Version</small><span>0.1.0</span></div>
+          <div><small>Scope</small><span>Local only</span></div>
+          <div><small>Price</small><span>Free</span></div>
+        </div>
+        <p class="fine">Personal / educational use, one phone at a time. No anti-detection or mock-location evasion, no auto-update, no licensing.</p>
+        <div class="btns">
+          <a class="btn primary" href="https://undercoverapp.vercel.app" target="_blank" rel="noopener">Get Undercover
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        </div>
+      </div>
+      <div class="media">
+        <div class="frame main"><img src="img/undercover-hero.jpg" loading="lazy" decoding="async" width="1180" height="780" alt="Undercover connected to an iPhone, with a pin dropped near Apple Park on the map"></div>
+        <div class="caption">The app running on Windows, connected to a phone</div>
+      </div>
+    </article>
+    <article class="detail n5" id="manu">
+      <div class="copy">
+        <div class="badge"><span class="dot" aria-hidden="true"></span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7v13h18V7M3 7l9-4 9 4M3 7l9 4 9-4M12 11v9"/></svg>Web app · Live</div>
+        <h3>manu ai</h3>
+        <p class="lead">A garment is really a sourcing decision under constraints — budget, order size, skill required. <b>manu ai underwrites that decision</b> the way a screener prices a position: one design, ~40 candidate manufacturers, one weighted score per candidate. Built out of the exact problem Vain Apparel ran into — finding a factory for a design.</p>
+        <ul class="feats">
+          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Describe the garment or drop in a sketch — an LLM extracts the structured attributes once: fabric, construction complexity, special features</span></li>
+          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Every manufacturer is scored on the same five weighted factors — specialty fit, capability match, MOQ fit, skill-vs-complexity, and budget tier — then ranked, not just filtered</span></li>
+          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Each ranked pick carries its reasoning, so the shortlist reads like an allocation memo, not a black-box score</span></li>
+          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Runs free by default (Groq); upgrades to Claude for vision + structured output only if you choose to spend on it</span></li>
+        </ul>
+        <div class="meta">
+          <div><small>Stack</small><span>Next.js</span></div>
+          <div><small>Data</small><span>40 makers</span></div>
+          <div><small>Price</small><span>Free</span></div>
+          <div><small>Status</small><span>Live</span></div>
+        </div>
+        <div class="btns">
+          <a class="btn primary" href="https://manu-ai-vs.vercel.app" target="_blank" rel="noopener">Try manu ai
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        </div>
+      </div>
+      <div class="media">
+        <div class="frame main"><img src="img/manu-hero.png" loading="lazy" decoding="async" width="1600" height="760" alt="manu ai landing page: a form to describe a garment, upload a sketch, set a budget, clothing type and order quantity"></div>
+        <div class="caption">Live at manu-ai-vs.vercel.app</div>
+      </div>
+    </article>
+    <article class="detail n4" id="perps">
+      <div class="copy">
+        <div class="badge"><span class="dot" aria-hidden="true"></span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>Trading bot · In progress</div>
+        <h3>Perps Bot</h3>
+        <p class="lead">An automated perpetual-futures trader for <b>dYdX v4</b>, running on paper money until the strategy earns the right to go live.</p>
+        <ul class="feats">
+          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Fibonacci-retracement swing setups on 1-hour candles for BTC and ETH</span></li>
+          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Enters with resting limit orders at the level — the version that survived realistic slippage, fees and funding in backtests</span></li>
+          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Fixed risk per trade, isolated margin, and a hard stop placed on every fill</span></li>
+          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Runs unattended every 15 minutes, with a live dashboard for positions, orders and the trade log</span></li>
+        </ul>
+        <div class="meta">
+          <div><small>Exchange</small><span>dYdX v4</span></div>
+          <div><small>Markets</small><span>BTC · ETH</span></div>
+          <div><small>Risk</small><span>7% · 5× iso</span></div>
+          <div><small>Mode</small><span>Paper (testnet)</span></div>
+        </div>
+        <div class="tags"><span>Python</span><span>dYdX v4 API</span><span>Backtested</span><span>Task Scheduler</span></div>
+      </div>
+      <div class="media">
+        <div class="frame main"><img src="img/perps-dashboard.png" loading="lazy" decoding="async" width="1224" height="540" alt="Perps Bot dashboard: BTC and ETH market panels with sparklines, a resting short limit order on ETH, orders on the book, and a trade log"></div>
+        <div class="caption">Live dashboard · testnet paper account, not real money</div>
+      </div>
+    </article>
     <article class="detail n8" id="pinplan">
       <div class="copy">
         <div class="badge"><span class="dot" aria-hidden="true"></span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2h6M10 2v6l-4 8a3 3 0 0 0 3 4h6a3 3 0 0 0 3-4l-4-8V2"/></svg>Web app · Live</div>
@@ -628,13 +621,74 @@
         <div class="caption">Catalog and PinPlanner, the drag-and-drop cycle builder</div>
       </div>
     </article>
+    <article class="detail n2" id="flippy">
+      <div class="copy">
+        <div class="badge"><span class="dot" aria-hidden="true"></span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="3"/><path d="M6 12h4M8 10v4M15 11h.01M18 13h.01"/></svg>Browser game · Free on itch.io</div>
+        <h3>Flippy
+          <svg class="icon" style="width:26px;height:26px;color:#0fbcb0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2h4v4l2 3v11a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V9l2-3z"/><path d="M8 14h8"/></svg></h3>
+        <p class="lead">A neon arcade game. <b>Nail the timing on the bottle flip — before the meter outpaces you.</b></p>
+        <p>One bottle, one meter, a row of glowing platforms. Get the timing right and you keep going; get it wrong and you’re back to the start. Plays right in the browser, nothing to install.</p>
+        <div class="tags"><span>2D</span><span>Arcade</span><span>Neon</span><span>Bottle flip</span><span>HTML5</span></div>
+        <div class="meta">
+          <div><small>Platform</small><span>Browser</span></div>
+          <div><small>Status</small><span>Released</span></div>
+          <div><small>Price</small><span>Free</span></div>
+          <div><small>Audio</small><span>AI-generated</span></div>
+        </div>
+        <div class="btns">
+          <a class="btn primary" href="https://vaibeans.itch.io/flippy" target="_blank" rel="noopener">Play Flippy
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg></a>
+        </div>
+      </div>
+      <div class="media stack">
+        <div class="frame main"><img src="img/flippy2.png" loading="lazy" decoding="async" width="347" height="212" alt="Flippy gameplay: a bottle on the first of a row of glowing teal platforms"></div>
+        <div class="pair">
+          <div class="frame"><img src="img/flippy1.png" loading="lazy" decoding="async" width="347" height="164" alt="Flippy screenshot"></div>
+          <div class="frame"><img src="img/flippy3.png" loading="lazy" decoding="async" width="347" height="208" alt="Flippy screenshot"></div>
+        </div>
+        <div class="caption">Screenshots from the itch.io page</div>
+      </div>
+    </article>
+    <article class="detail n1" id="orange">
+      <div class="copy">
+        <div class="badge"><span class="dot" aria-hidden="true"></span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 16V8h3.5a2.5 2.5 0 0 1 0 5H8M14.5 16l2-8 2 8"/></svg>Photoshop plugin · Adobe Exchange</div>
+        <h3>Orange, for Photoshop.</h3>
+        <p class="lead">Type what you want done — <b>“select the shoes”</b>, <b>“merge Layer 1 and Layer 2”</b>, <b>“generate a mountain landscape”</b> — and Orange figures out which action to run. No hunting through menus.</p>
+        <ul class="feats">
+          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Selects objects by description, using AI object segmentation</span></li>
+          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Merges layers by name; creates hue/saturation layers from a color word</span></li>
+          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Generates images sized exactly to your canvas</span></li>
+          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Matches the style of an existing layer or an attached reference image</span></li>
+          <li><span class="dash" aria-hidden="true">&ndash;</span><span>Multiple renameable chat threads; understands <q>that’s not it</q> corrections</span></li>
+        </ul>
+        <div class="meta">
+          <div><small>Version</small><span>1.0.0</span></div>
+          <div><small>Published</small><span>Sep 10, 2026</span></div>
+          <div><small>Size</small><span>2.06 MB</span></div>
+          <div><small>Requires</small><span>Ps 26.11.26+</span></div>
+          <div><small>Price</small><span>Free</span></div>
+        </div>
+        <p class="fine">Windows and Mac. Uses <a href="https://ollama.com/download" target="_blank" rel="noopener">Ollama</a> locally for its language and vision models — no account or login needed.</p>
+        <div class="btns">
+          <a class="btn primary" href="https://exchange.adobe.com/apps/cc/ae37a3ef/orange-for-photoshop" target="_blank" rel="noopener">Get it on Adobe Exchange
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        </div>
+      </div>
+      <div class="media">
+        <div class="app-id">
+          <img src="img/orange-icon.png" alt="Orange plugin icon: a smiling orange" width="48" height="48">
+          <div><b>Orange</b><small>AI assistant for Photoshop</small></div>
+        </div>
+        <div class="frame main"><img src="img/orange-hero.png" width="1360" height="800" alt="Orange listing artwork: 'Type what you want done in plain English - select an object, merge layers, generate an image - and Orange figures out the rest.'"></div>
+        <div class="caption">Listing artwork from Adobe Exchange · Design Assets, Tools &amp; Automation</div>
+      </div>
+    </article>
     </div>
   </div>
 </section>
 
 <section class="practice" id="practice">
   <div class="wrap">
-    <span class="label">/ Practice</span>
     <p class="lead-xl">More about me</p>
     <div class="acc-list">
       <div class="acc"><button type="button" class="acc-h" aria-expanded="true" aria-controls="acc0"><span>Skills</span><i class="plus" aria-hidden="true"></i></button><div class="acc-p" id="acc0" role="region"><div><p>Experienced with Adobe Photoshop, animation in Blender, game design and creation using UE5 and Unity, aswell as video editing in Premiere Pro.</p></div></div></div>
@@ -984,18 +1038,67 @@
     document.addEventListener("pointerleave", function(){ cur.classList.remove("on"); seen = false; });
   }
 
+  // ---- circular reveals that grow from the last click ----
+  var lastPt = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+  window.addEventListener("pointerdown", function(e){ lastPt = { x: e.clientX, y: e.clientY }; }, true);
+  window.addEventListener("keydown", function(e){
+    var t = document.activeElement;
+    if((e.key === "Enter" || e.key === " ") && t && t.getBoundingClientRect){
+      var r = t.getBoundingClientRect();
+      lastPt = { x: r.left + r.width / 2, y: r.top + r.height / 2 };
+    }
+  }, true);
+  function reach(p){
+    var w = window.innerWidth, h = window.innerHeight;
+    return Math.ceil(Math.max(Math.hypot(p.x, p.y), Math.hypot(w - p.x, p.y), Math.hypot(p.x, h - p.y), Math.hypot(w - p.x, h - p.y))) + 2;
+  }
+  function circ(p, r){ return "circle(" + r + "px at " + p.x + "px " + p.y + "px)"; }
+
   // ---- page curtain used by the router when switching between Work and About ----
   var curtain = qs(".curtain");
   window.pageSwap = function(swap){
     if(reduce || !curtain || !curtain.animate){ swap(); return; }
+    var p = { x: lastPt.x, y: lastPt.y }, R = reach(p);
     curtain.style.display = "block";
-    var a = curtain.animate([{ transform: "translateY(100%)" }, { transform: "translateY(0)" }], { duration: 440, easing: "cubic-bezier(.76,0,.24,1)", fill: "forwards" });
+    curtain.style.transform = "none";
+    var a = curtain.animate([{ clipPath: circ(p, 0) }, { clipPath: circ(p, R) }], { duration: 560, easing: "cubic-bezier(.7,0,.2,1)", fill: "forwards" });
     a.onfinish = function(){
       swap();
-      var b = curtain.animate([{ transform: "translateY(0)" }, { transform: "translateY(-100%)" }], { duration: 520, easing: "cubic-bezier(.76,0,.24,1)", fill: "forwards" });
-      b.onfinish = function(){ a.cancel(); b.cancel(); curtain.style.display = "none"; };
+      var b = curtain.animate([{ clipPath: circ(p, R), opacity: 1 }, { clipPath: circ(p, R), opacity: 0 }], { duration: 420, easing: "ease-out", fill: "forwards" });
+      b.onfinish = function(){ a.cancel(); b.cancel(); curtain.style.display = "none"; curtain.style.transform = ""; };
     };
   };
+
+  // ---- sort: reorder the project index with a FLIP slide ----
+  (function(){
+    var list = qs(".index"), btns = qsa(".sort-b");
+    if(!list || !btns.length) return;
+    var ORDER = {
+      importance: ["options","baywell","rdtg","vain","undercover","manu","perps","pinplan","flippy","orange"],
+      chronological: ["vain","orange","flippy","perps","manu","options","undercover","pinplan","rdtg","baywell"]
+    };
+    function idOf(li){ var a = li.querySelector(".row"); return a ? a.dataset.id : ""; }
+    function sortBy(key){
+      var lis = qsa(".item", list), rank = ORDER[key];
+      var before = {};
+      lis.forEach(function(li){ before[idOf(li)] = li.getBoundingClientRect().top; });
+      lis.slice().sort(function(a, b){ return rank.indexOf(idOf(a)) - rank.indexOf(idOf(b)); })
+         .forEach(function(li){ list.appendChild(li); });
+      if(reduce) return;
+      qsa(".item", list).forEach(function(li){
+        var d = before[idOf(li)] - li.getBoundingClientRect().top;
+        if(!d || !li.animate) return;
+        li.animate([{ transform: "translateY(" + d + "px)" }, { transform: "none" }], { duration: 620, easing: "cubic-bezier(.7,0,.2,1)" });
+      });
+    }
+    btns.forEach(function(b){
+      b.addEventListener("click", function(){
+        if(b.classList.contains("on")) return;
+        btns.forEach(function(x){ var on = x === b; x.classList.toggle("on", on); x.setAttribute("aria-pressed", on ? "true" : "false"); });
+        sortBy(b.dataset.sort);
+      });
+    });
+  })();
 
   // ---- the sheet: spring open, 1:1 drag, release velocity carried into the settle ----
   var rows = qsa(".row");
@@ -1007,7 +1110,7 @@
     var panel = qs(".sheet", dlg), head = qs(".sheet-head", dlg), scrollEl = qs(".sheet-scroll", dlg);
     var content = qs(".sheet-content", dlg), titleEl = qs(".sheet-title", dlg), scrimEl = qs(".scrim", dlg);
     var closeBtn = qs(".x", dlg);
-    var H = 800, current = null, closing = false, drag = null;
+    var H = 800, current = null, closing = false, drag = null, slideClose = false, anim = null, origin = null;
 
     var sp = spring({ value: H, response: 0.5, damping: 1, rest: 0.4, onUpdate: function(y){
       panel.style.transform = "translate3d(0," + y.toFixed(1) + "px,0)";
@@ -1035,7 +1138,10 @@
     api.open = function(id){
       if(!details[id]) return;
       if(dlg.open && current === id){
-        if(closing){ closing = false; sp.to(0, { response: 0.45, damping: 1 }); }
+        if(closing){
+          closing = false;
+          if(anim){ anim.cancel(); anim = null; sp.set(0); } else { sp.to(0, { response: 0.45, damping: 1 }); }
+        }
         return;
       }
       var wasOpen = dlg.open;
@@ -1043,13 +1149,21 @@
         dlg.showModal();
         root.classList.add("locked");
         measure();
-        sp.set(H);
+        sp.set(reduce ? H : 0);
       }
       fill(id);
       current = id; closing = false;
       panel.classList.remove("in");
       requestAnimationFrame(function(){ requestAnimationFrame(function(){ panel.classList.add("in"); }); });
-      if(reduce){ sp.set(0); } else { sp.to(0, { response: 0.5, damping: 1 }); }
+      if(reduce){ sp.set(0); }
+      else if(!wasOpen){
+        var o = origin || lastPt; origin = null;
+        if(anim) anim.cancel();
+        anim = dlg.animate([{ clipPath: circ(o, 0) }, { clipPath: circ(o, reach(o)) }], { duration: 640, easing: "cubic-bezier(.7,0,.2,1)" });
+        anim.onfinish = function(){ anim = null; };
+        dlg._o = o;
+      }
+      else { sp.to(0, { response: 0.5, damping: 1 }); }
       try { panel.focus({ preventScroll: true }); } catch(e){}
     };
     function finish(){
@@ -1062,7 +1176,11 @@
       if(!dlg.open || closing) return;
       closing = true;
       if(reduce){ sp.set(H); finish(); return; }
-      sp.to(H, { response: 0.4, damping: 1, onRest: finish });
+      if(slideClose || !dlg.animate){ slideClose = false; sp.to(H, { response: 0.4, damping: 1, onRest: finish }); return; }
+      var o = dlg._o || lastPt;
+      if(anim) anim.cancel();
+      anim = dlg.animate([{ clipPath: circ(o, reach(o)) }, { clipPath: circ(o, 0) }], { duration: 480, easing: "cubic-bezier(.6,0,.3,1)", fill: "forwards" });
+      anim.onfinish = function(){ var a = anim; anim = null; finish(); if(a) a.cancel(); };
     };
     api.requestClose = function(){
       if(history.state && history.state.sheet){ history.back(); }
@@ -1095,7 +1213,7 @@
       var v = b.t > a.t ? (b.y - a.y) / (b.t - a.t) * 1000 : 0;
       drag = null;
       panel.classList.remove("dragging");
-      if(sp.value + project(v) > H * 0.5){ sp.velocity = v; api.requestClose(); }
+      if(sp.value + project(v) > H * 0.5){ sp.velocity = v; slideClose = true; api.requestClose(); }
       else { sp.to(0, { velocity: v, response: 0.35, damping: 0.85 }); }
     }
     head.addEventListener("pointerup", release);
@@ -1107,6 +1225,7 @@
         if(e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;
         e.preventDefault();
         var id = row.dataset.id;
+        origin = { x: e.clientX || (row.getBoundingClientRect().left + row.offsetWidth / 2), y: e.clientY || (row.getBoundingClientRect().top + row.offsetHeight / 2) };
         try { history.pushState({ sheet: id }, "", "#/work/" + id); } catch(er){ location.hash = "#/work/" + id; return; }
         window.dispatchEvent(new PopStateEvent("popstate"));
       });
